@@ -1,0 +1,366 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		71BC6BE72478897F004E1D77 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 71BC6BE62478897F004E1D77 /* AppDelegate.m */; };
+		71BC6BEA2478897F004E1D77 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 71BC6BE92478897F004E1D77 /* SceneDelegate.m */; };
+		71BC6BF224788980004E1D77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71BC6BF124788980004E1D77 /* Assets.xcassets */; };
+		71BC6BF524788980004E1D77 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71BC6BF324788980004E1D77 /* LaunchScreen.storyboard */; };
+		71BC6BF824788980004E1D77 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 71BC6BF724788980004E1D77 /* main.m */; };
+		71BC6C0124788A2B004E1D77 /* SCTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71BC6C0024788A2B004E1D77 /* SCTabBarViewController.m */; };
+		71BC6C0424788B2B004E1D77 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71BC6C0324788B2B004E1D77 /* HomeViewController.m */; };
+		71BC6C0724788B49004E1D77 /* MessageCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71BC6C0624788B49004E1D77 /* MessageCenterViewController.m */; };
+		71BC6C0A24788B5F004E1D77 /* DiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71BC6C0924788B5F004E1D77 /* DiscoverViewController.m */; };
+		71BC6C0D24788B70004E1D77 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71BC6C0C24788B70004E1D77 /* ProfileViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		71BC6BE22478897F004E1D77 /* 新浪微博项目.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "新浪微博项目.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		71BC6BE52478897F004E1D77 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		71BC6BE62478897F004E1D77 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		71BC6BE82478897F004E1D77 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		71BC6BE92478897F004E1D77 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		71BC6BF124788980004E1D77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		71BC6BF424788980004E1D77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		71BC6BF624788980004E1D77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		71BC6BF724788980004E1D77 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		71BC6BFF24788A2B004E1D77 /* SCTabBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCTabBarViewController.h; sourceTree = "<group>"; };
+		71BC6C0024788A2B004E1D77 /* SCTabBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCTabBarViewController.m; sourceTree = "<group>"; };
+		71BC6C0224788B2B004E1D77 /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		71BC6C0324788B2B004E1D77 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		71BC6C0524788B49004E1D77 /* MessageCenterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageCenterViewController.h; sourceTree = "<group>"; };
+		71BC6C0624788B49004E1D77 /* MessageCenterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageCenterViewController.m; sourceTree = "<group>"; };
+		71BC6C0824788B5F004E1D77 /* DiscoverViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DiscoverViewController.h; sourceTree = "<group>"; };
+		71BC6C0924788B5F004E1D77 /* DiscoverViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DiscoverViewController.m; sourceTree = "<group>"; };
+		71BC6C0B24788B70004E1D77 /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		71BC6C0C24788B70004E1D77 /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		71BC6BDF2478897F004E1D77 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		71BC6BD92478897F004E1D77 = {
+			isa = PBXGroup;
+			children = (
+				71BC6BE42478897F004E1D77 /* 新浪微博项目 */,
+				71BC6BE32478897F004E1D77 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		71BC6BE32478897F004E1D77 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				71BC6BE22478897F004E1D77 /* 新浪微博项目.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		71BC6BE42478897F004E1D77 /* 新浪微博项目 */ = {
+			isa = PBXGroup;
+			children = (
+				71BC6BFE247889FF004E1D77 /* Classes */,
+				71BC6BF124788980004E1D77 /* Assets.xcassets */,
+				71BC6BF324788980004E1D77 /* LaunchScreen.storyboard */,
+				71BC6BF624788980004E1D77 /* Info.plist */,
+				71BC6BF724788980004E1D77 /* main.m */,
+			);
+			path = "新浪微博项目";
+			sourceTree = "<group>";
+		};
+		71BC6BFE247889FF004E1D77 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				71BC6BFF24788A2B004E1D77 /* SCTabBarViewController.h */,
+				71BC6C0024788A2B004E1D77 /* SCTabBarViewController.m */,
+				71BC6BE52478897F004E1D77 /* AppDelegate.h */,
+				71BC6BE62478897F004E1D77 /* AppDelegate.m */,
+				71BC6BE82478897F004E1D77 /* SceneDelegate.h */,
+				71BC6BE92478897F004E1D77 /* SceneDelegate.m */,
+				71BC6C0224788B2B004E1D77 /* HomeViewController.h */,
+				71BC6C0324788B2B004E1D77 /* HomeViewController.m */,
+				71BC6C0524788B49004E1D77 /* MessageCenterViewController.h */,
+				71BC6C0624788B49004E1D77 /* MessageCenterViewController.m */,
+				71BC6C0824788B5F004E1D77 /* DiscoverViewController.h */,
+				71BC6C0924788B5F004E1D77 /* DiscoverViewController.m */,
+				71BC6C0B24788B70004E1D77 /* ProfileViewController.h */,
+				71BC6C0C24788B70004E1D77 /* ProfileViewController.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		71BC6BE12478897F004E1D77 /* 新浪微博项目 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 71BC6BFB24788980004E1D77 /* Build configuration list for PBXNativeTarget "新浪微博项目" */;
+			buildPhases = (
+				71BC6BDE2478897F004E1D77 /* Sources */,
+				71BC6BDF2478897F004E1D77 /* Frameworks */,
+				71BC6BE02478897F004E1D77 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "新浪微博项目";
+			productName = "新浪微博项目";
+			productReference = 71BC6BE22478897F004E1D77 /* 新浪微博项目.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		71BC6BDA2478897F004E1D77 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = "Evan Yang";
+				TargetAttributes = {
+					71BC6BE12478897F004E1D77 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 71BC6BDD2478897F004E1D77 /* Build configuration list for PBXProject "新浪微博项目" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 71BC6BD92478897F004E1D77;
+			productRefGroup = 71BC6BE32478897F004E1D77 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				71BC6BE12478897F004E1D77 /* 新浪微博项目 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		71BC6BE02478897F004E1D77 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71BC6BF524788980004E1D77 /* LaunchScreen.storyboard in Resources */,
+				71BC6BF224788980004E1D77 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		71BC6BDE2478897F004E1D77 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71BC6C0124788A2B004E1D77 /* SCTabBarViewController.m in Sources */,
+				71BC6BE72478897F004E1D77 /* AppDelegate.m in Sources */,
+				71BC6C0D24788B70004E1D77 /* ProfileViewController.m in Sources */,
+				71BC6C0A24788B5F004E1D77 /* DiscoverViewController.m in Sources */,
+				71BC6BF824788980004E1D77 /* main.m in Sources */,
+				71BC6C0424788B2B004E1D77 /* HomeViewController.m in Sources */,
+				71BC6BEA2478897F004E1D77 /* SceneDelegate.m in Sources */,
+				71BC6C0724788B49004E1D77 /* MessageCenterViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		71BC6BF324788980004E1D77 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				71BC6BF424788980004E1D77 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		71BC6BF924788980004E1D77 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		71BC6BFA24788980004E1D77 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		71BC6BFC24788980004E1D77 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 88E42JQ9R5;
+				INFOPLIST_FILE = "新浪微博项目/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "EvanYang.------";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		71BC6BFD24788980004E1D77 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 88E42JQ9R5;
+				INFOPLIST_FILE = "新浪微博项目/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "EvanYang.------";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		71BC6BDD2478897F004E1D77 /* Build configuration list for PBXProject "新浪微博项目" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				71BC6BF924788980004E1D77 /* Debug */,
+				71BC6BFA24788980004E1D77 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		71BC6BFB24788980004E1D77 /* Build configuration list for PBXNativeTarget "新浪微博项目" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				71BC6BFC24788980004E1D77 /* Debug */,
+				71BC6BFD24788980004E1D77 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 71BC6BDA2478897F004E1D77 /* Project object */;
+}
