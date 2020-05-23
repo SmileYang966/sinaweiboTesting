@@ -22,19 +22,9 @@
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated{
     [super pushViewController:viewController animated:animated];
     if (self.viewControllers.count>1) {
-        UIImage *img = [UIImage imageNamed:@"navigationbar_back"];
-        UIButton *leftButton = [[UIButton alloc]initWithFrame:CGRectMake(0,0,img.size.width, img.size.height)];
-        [leftButton setBackgroundImage:img forState:UIControlStateNormal];
-        [leftButton setBackgroundImage:[UIImage imageNamed:@"navigationbar_back_highlighted"] forState:UIControlStateHighlighted];
-        viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:leftButton];
-        [leftButton addTarget:self action:@selector(backItemAction) forControlEvents:UIControlEventTouchUpInside];
+        viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem barButtonwithTarget:self action:@selector(backItemAction) imageName:@"navigationbar_back" selectedImageName:@"navigationbar_back_highlighted"];
         
-        UIImage *rightImg = [UIImage imageNamed:@"navigationbar_more"];
-        UIButton *moreButton = [[UIButton alloc]initWithFrame:CGRectMake(0,0,img.size.width, img.size.height)];
-        [moreButton setBackgroundImage:rightImg forState:UIControlStateNormal];
-        [moreButton setBackgroundImage:[UIImage imageNamed:@"navigationbar_more_highlighted"] forState:UIControlStateHighlighted];
-        viewController.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:moreButton];
-        [moreButton addTarget:self action:@selector(moreButtonAction) forControlEvents:UIControlEventTouchUpInside];
+        viewController.navigationItem.rightBarButtonItem = [UIBarButtonItem barButtonwithTarget:self action:@selector(moreButtonAction) imageName:@"navigationbar_more" selectedImageName:@"navigationbar_more_highlighted"];
     }
 }
 

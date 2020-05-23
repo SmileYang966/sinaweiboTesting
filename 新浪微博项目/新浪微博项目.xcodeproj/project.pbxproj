@@ -20,6 +20,7 @@
 		71BC6C102478A943004E1D77 /* UITestedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71BC6C0F2478A943004E1D77 /* UITestedViewController.m */; };
 		71BC6C142478B04F004E1D77 /* UIView+FrameExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 71BC6C132478B04F004E1D77 /* UIView+FrameExtension.m */; };
 		71BC6C172478C88A004E1D77 /* SCNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71BC6C162478C88A004E1D77 /* SCNavigationController.m */; };
+		71BC6C2024790E8C004E1D77 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 71BC6C1F24790E8C004E1D77 /* UIBarButtonItem+Extension.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,9 @@
 		71BC6C132478B04F004E1D77 /* UIView+FrameExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+FrameExtension.m"; sourceTree = "<group>"; };
 		71BC6C152478C88A004E1D77 /* SCNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCNavigationController.h; sourceTree = "<group>"; };
 		71BC6C162478C88A004E1D77 /* SCNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCNavigationController.m; sourceTree = "<group>"; };
+		71BC6C1E24790E8C004E1D77 /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
+		71BC6C1F24790E8C004E1D77 /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
+		71BC6C2124791325004E1D77 /* sinaPchFile.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sinaPchFile.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +84,6 @@
 		71BC6BE42478897F004E1D77 /* 新浪微博项目 */ = {
 			isa = PBXGroup;
 			children = (
-				71BC6C112478B011004E1D77 /* Categories */,
 				71BC6BFE247889FF004E1D77 /* Classes */,
 				71BC6BF124788980004E1D77 /* Assets.xcassets */,
 				71BC6BF324788980004E1D77 /* LaunchScreen.storyboard */,
@@ -93,6 +96,7 @@
 		71BC6BFE247889FF004E1D77 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				71BC6C112478B011004E1D77 /* Categories */,
 				71BC6C1C2478FC70004E1D77 /* Main */,
 				71BC6C1B2478F4A6004E1D77 /* 个人中心 */,
 				71BC6C1A2478F492004E1D77 /* 发现 */,
@@ -107,6 +111,8 @@
 			children = (
 				71BC6C122478B04F004E1D77 /* UIView+FrameExtension.h */,
 				71BC6C132478B04F004E1D77 /* UIView+FrameExtension.m */,
+				71BC6C1E24790E8C004E1D77 /* UIBarButtonItem+Extension.h */,
+				71BC6C1F24790E8C004E1D77 /* UIBarButtonItem+Extension.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -160,6 +166,7 @@
 				71BC6C0024788A2B004E1D77 /* SCTabBarViewController.m */,
 				71BC6C152478C88A004E1D77 /* SCNavigationController.h */,
 				71BC6C162478C88A004E1D77 /* SCNavigationController.m */,
+				71BC6C2124791325004E1D77 /* sinaPchFile.pch */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -233,6 +240,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71BC6C2024790E8C004E1D77 /* UIBarButtonItem+Extension.m in Sources */,
 				71BC6C0124788A2B004E1D77 /* SCTabBarViewController.m in Sources */,
 				71BC6BE72478897F004E1D77 /* AppDelegate.m in Sources */,
 				71BC6C0D24788B70004E1D77 /* ProfileViewController.m in Sources */,
@@ -377,6 +385,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 88E42JQ9R5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "/Users/ray/sinaweiboTesting/新浪微博项目/新浪微博项目/Classes/Main/sinaPchFile.pch";
 				INFOPLIST_FILE = "新浪微博项目/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -394,6 +404,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 88E42JQ9R5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "/Users/ray/sinaweiboTesting/新浪微博项目/新浪微博项目/Classes/Main/sinaPchFile.pch";
 				INFOPLIST_FILE = "新浪微博项目/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
