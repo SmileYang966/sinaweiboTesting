@@ -18,6 +18,7 @@
 		71BC6C0A24788B5F004E1D77 /* DiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71BC6C0924788B5F004E1D77 /* DiscoverViewController.m */; };
 		71BC6C0D24788B70004E1D77 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71BC6C0C24788B70004E1D77 /* ProfileViewController.m */; };
 		71BC6C102478A943004E1D77 /* UITestedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71BC6C0F2478A943004E1D77 /* UITestedViewController.m */; };
+		71BC6C142478B04F004E1D77 /* UIView+FrameExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 71BC6C132478B04F004E1D77 /* UIView+FrameExtension.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,8 @@
 		71BC6C0C24788B70004E1D77 /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		71BC6C0E2478A943004E1D77 /* UITestedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UITestedViewController.h; sourceTree = "<group>"; };
 		71BC6C0F2478A943004E1D77 /* UITestedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UITestedViewController.m; sourceTree = "<group>"; };
+		71BC6C122478B04F004E1D77 /* UIView+FrameExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+FrameExtension.h"; sourceTree = "<group>"; };
+		71BC6C132478B04F004E1D77 /* UIView+FrameExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+FrameExtension.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +77,7 @@
 		71BC6BE42478897F004E1D77 /* 新浪微博项目 */ = {
 			isa = PBXGroup;
 			children = (
+				71BC6C112478B011004E1D77 /* Categories */,
 				71BC6BFE247889FF004E1D77 /* Classes */,
 				71BC6BF124788980004E1D77 /* Assets.xcassets */,
 				71BC6BF324788980004E1D77 /* LaunchScreen.storyboard */,
@@ -104,6 +108,15 @@
 				71BC6C0F2478A943004E1D77 /* UITestedViewController.m */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		71BC6C112478B011004E1D77 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				71BC6C122478B04F004E1D77 /* UIView+FrameExtension.h */,
+				71BC6C132478B04F004E1D77 /* UIView+FrameExtension.m */,
+			);
+			path = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,6 +196,7 @@
 				71BC6C0424788B2B004E1D77 /* HomeViewController.m in Sources */,
 				71BC6BEA2478897F004E1D77 /* SceneDelegate.m in Sources */,
 				71BC6C102478A943004E1D77 /* UITestedViewController.m in Sources */,
+				71BC6C142478B04F004E1D77 /* UIView+FrameExtension.m in Sources */,
 				71BC6C0724788B49004E1D77 /* MessageCenterViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
