@@ -7,6 +7,7 @@
 //
 
 #import "MessageCenterViewController.h"
+#import "UITestedViewController.h"
 
 @interface MessageCenterViewController ()
 
@@ -17,6 +18,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.view.backgroundColor = UIColor.blueColor;
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    UITestedViewController *testedVC = [[UITestedViewController alloc]init];
+    [self.navigationController pushViewController:testedVC animated:YES];
 }
 
 /*

@@ -47,19 +47,17 @@
 }
 
 -(void)addViewControlerWithController:(UIViewController *)controller title:(NSString *)title tabBarItemImageName:(NSString *)imageName selectedTabBarItemImageName:(NSString *)selectedImageName {
-    UIViewController *vc = [[UIViewController alloc]init];
-    vc.view.backgroundColor = UIColor.whiteColor;
-    vc.title = title;
-    vc.tabBarItem.image = [UIImage imageNamed:imageName];
+    controller.title = title;
+    controller.tabBarItem.image = [UIImage imageNamed:imageName];
     
     NSMutableDictionary *homeTextAttr = [NSMutableDictionary dictionary];
     homeTextAttr[NSForegroundColorAttributeName] = UIColor.orangeColor;
-    [vc.tabBarItem setTitleTextAttributes:homeTextAttr forState:UIControlStateNormal];
+    [controller.tabBarItem setTitleTextAttributes:homeTextAttr forState:UIControlStateNormal];
     UIImage *homeSelectedImage = [UIImage imageNamed:selectedImageName];
     
     //选择image不去渲染图片
-    vc.tabBarItem.selectedImage = [homeSelectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:vc];
+    controller.tabBarItem.selectedImage = [homeSelectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:controller];
     
     [self addChildViewController:nav];
 }
