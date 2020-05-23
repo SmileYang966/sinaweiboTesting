@@ -11,6 +11,7 @@
 #import "MessageCenterViewController.h"
 #import "DiscoverViewController.h"
 #import "ProfileViewController.h"
+#import "SCNavigationController.h"
 
 @interface SCTabBarViewController ()
 
@@ -57,7 +58,7 @@
     
     //选择image不去渲染图片
     controller.tabBarItem.selectedImage = [homeSelectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:controller];
+    SCNavigationController *nav = [[SCNavigationController alloc]initWithRootViewController:controller];
     
     [self addChildViewController:nav];
 }

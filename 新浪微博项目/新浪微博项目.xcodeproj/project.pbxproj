@@ -19,6 +19,7 @@
 		71BC6C0D24788B70004E1D77 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71BC6C0C24788B70004E1D77 /* ProfileViewController.m */; };
 		71BC6C102478A943004E1D77 /* UITestedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71BC6C0F2478A943004E1D77 /* UITestedViewController.m */; };
 		71BC6C142478B04F004E1D77 /* UIView+FrameExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 71BC6C132478B04F004E1D77 /* UIView+FrameExtension.m */; };
+		71BC6C172478C88A004E1D77 /* SCNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71BC6C162478C88A004E1D77 /* SCNavigationController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,8 @@
 		71BC6C0F2478A943004E1D77 /* UITestedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UITestedViewController.m; sourceTree = "<group>"; };
 		71BC6C122478B04F004E1D77 /* UIView+FrameExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+FrameExtension.h"; sourceTree = "<group>"; };
 		71BC6C132478B04F004E1D77 /* UIView+FrameExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+FrameExtension.m"; sourceTree = "<group>"; };
+		71BC6C152478C88A004E1D77 /* SCNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCNavigationController.h; sourceTree = "<group>"; };
+		71BC6C162478C88A004E1D77 /* SCNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCNavigationController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +109,8 @@
 				71BC6C0C24788B70004E1D77 /* ProfileViewController.m */,
 				71BC6C0E2478A943004E1D77 /* UITestedViewController.h */,
 				71BC6C0F2478A943004E1D77 /* UITestedViewController.m */,
+				71BC6C152478C88A004E1D77 /* SCNavigationController.h */,
+				71BC6C162478C88A004E1D77 /* SCNavigationController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -193,6 +198,7 @@
 				71BC6C0D24788B70004E1D77 /* ProfileViewController.m in Sources */,
 				71BC6C0A24788B5F004E1D77 /* DiscoverViewController.m in Sources */,
 				71BC6BF824788980004E1D77 /* main.m in Sources */,
+				71BC6C172478C88A004E1D77 /* SCNavigationController.m in Sources */,
 				71BC6C0424788B2B004E1D77 /* HomeViewController.m in Sources */,
 				71BC6BEA2478897F004E1D77 /* SceneDelegate.m in Sources */,
 				71BC6C102478A943004E1D77 /* UITestedViewController.m in Sources */,
