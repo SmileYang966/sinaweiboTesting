@@ -93,24 +93,11 @@
 		71BC6BFE247889FF004E1D77 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				71BC6BFF24788A2B004E1D77 /* SCTabBarViewController.h */,
-				71BC6C0024788A2B004E1D77 /* SCTabBarViewController.m */,
-				71BC6BE52478897F004E1D77 /* AppDelegate.h */,
-				71BC6BE62478897F004E1D77 /* AppDelegate.m */,
-				71BC6BE82478897F004E1D77 /* SceneDelegate.h */,
-				71BC6BE92478897F004E1D77 /* SceneDelegate.m */,
-				71BC6C0224788B2B004E1D77 /* HomeViewController.h */,
-				71BC6C0324788B2B004E1D77 /* HomeViewController.m */,
-				71BC6C0524788B49004E1D77 /* MessageCenterViewController.h */,
-				71BC6C0624788B49004E1D77 /* MessageCenterViewController.m */,
-				71BC6C0824788B5F004E1D77 /* DiscoverViewController.h */,
-				71BC6C0924788B5F004E1D77 /* DiscoverViewController.m */,
-				71BC6C0B24788B70004E1D77 /* ProfileViewController.h */,
-				71BC6C0C24788B70004E1D77 /* ProfileViewController.m */,
-				71BC6C0E2478A943004E1D77 /* UITestedViewController.h */,
-				71BC6C0F2478A943004E1D77 /* UITestedViewController.m */,
-				71BC6C152478C88A004E1D77 /* SCNavigationController.h */,
-				71BC6C162478C88A004E1D77 /* SCNavigationController.m */,
+				71BC6C1C2478FC70004E1D77 /* Main */,
+				71BC6C1B2478F4A6004E1D77 /* 个人中心 */,
+				71BC6C1A2478F492004E1D77 /* 发现 */,
+				71BC6C192478F479004E1D77 /* 消息 */,
+				71BC6C182478F46F004E1D77 /* 首页 */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -122,6 +109,59 @@
 				71BC6C132478B04F004E1D77 /* UIView+FrameExtension.m */,
 			);
 			path = Categories;
+			sourceTree = "<group>";
+		};
+		71BC6C182478F46F004E1D77 /* 首页 */ = {
+			isa = PBXGroup;
+			children = (
+				71BC6C0224788B2B004E1D77 /* HomeViewController.h */,
+				71BC6C0324788B2B004E1D77 /* HomeViewController.m */,
+			);
+			path = "首页";
+			sourceTree = "<group>";
+		};
+		71BC6C192478F479004E1D77 /* 消息 */ = {
+			isa = PBXGroup;
+			children = (
+				71BC6C0524788B49004E1D77 /* MessageCenterViewController.h */,
+				71BC6C0624788B49004E1D77 /* MessageCenterViewController.m */,
+				71BC6C0E2478A943004E1D77 /* UITestedViewController.h */,
+				71BC6C0F2478A943004E1D77 /* UITestedViewController.m */,
+			);
+			path = "消息";
+			sourceTree = "<group>";
+		};
+		71BC6C1A2478F492004E1D77 /* 发现 */ = {
+			isa = PBXGroup;
+			children = (
+				71BC6C0824788B5F004E1D77 /* DiscoverViewController.h */,
+				71BC6C0924788B5F004E1D77 /* DiscoverViewController.m */,
+			);
+			path = "发现";
+			sourceTree = "<group>";
+		};
+		71BC6C1B2478F4A6004E1D77 /* 个人中心 */ = {
+			isa = PBXGroup;
+			children = (
+				71BC6C0B24788B70004E1D77 /* ProfileViewController.h */,
+				71BC6C0C24788B70004E1D77 /* ProfileViewController.m */,
+			);
+			path = "个人中心";
+			sourceTree = "<group>";
+		};
+		71BC6C1C2478FC70004E1D77 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				71BC6BE52478897F004E1D77 /* AppDelegate.h */,
+				71BC6BE62478897F004E1D77 /* AppDelegate.m */,
+				71BC6BE82478897F004E1D77 /* SceneDelegate.h */,
+				71BC6BE92478897F004E1D77 /* SceneDelegate.m */,
+				71BC6BFF24788A2B004E1D77 /* SCTabBarViewController.h */,
+				71BC6C0024788A2B004E1D77 /* SCTabBarViewController.m */,
+				71BC6C152478C88A004E1D77 /* SCNavigationController.h */,
+				71BC6C162478C88A004E1D77 /* SCNavigationController.m */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
