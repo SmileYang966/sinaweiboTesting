@@ -17,6 +17,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+      self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"设置" style:UIBarButtonItemStylePlain target:self action:@selector(settingButtonClicked:)];
+}
+
+- (void)settingButtonClicked:(UIBarButtonItem *)barButtonItem{
+    
 }
 
 /*

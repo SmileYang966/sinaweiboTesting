@@ -20,6 +20,13 @@
     // Do any additional setup after loading the view.
     
     self.view.backgroundColor = UIColor.blueColor;
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"消息" style:UIBarButtonItemStylePlain target:self action:@selector(messageButtonClicked:)];
+    self.navigationItem.rightBarButtonItem.enabled = NO;
+}
+
+- (void)messageButtonClicked:(UIBarButtonItem *)barButtonItem{
+    
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{

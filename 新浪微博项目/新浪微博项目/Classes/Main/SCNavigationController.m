@@ -14,6 +14,29 @@
 
 @implementation SCNavigationController
 
++ (void)initialize{
+    [super initialize];
+    
+    //统一设置UINavigationController上UIBarButtonItem的normal模式、高亮模式以及disable模式下的样式设置
+    UIBarButtonItem *item = [UIBarButtonItem appearance];
+    NSMutableDictionary *dictM = [NSMutableDictionary dictionary];
+    dictM[NSForegroundColorAttributeName] = UIColor.orangeColor;
+    dictM[NSFontAttributeName] = [UIFont systemFontOfSize:13.0f];
+    [item setTitleTextAttributes:dictM forState:UIControlStateNormal];
+
+
+    NSMutableDictionary *dictMHighlighted = [NSMutableDictionary dictionary];
+    dictMHighlighted[NSFontAttributeName] = [UIFont systemFontOfSize:13.0f];
+    dictMHighlighted[NSForegroundColorAttributeName] = UIColor.redColor;
+    [item setTitleTextAttributes:dictMHighlighted forState:UIControlStateHighlighted];
+
+    NSMutableDictionary *disabledStatus = [NSMutableDictionary dictionary];
+    disabledStatus[NSFontAttributeName] = [UIFont systemFontOfSize:13.0f];
+    disabledStatus[NSForegroundColorAttributeName] = UIColor.lightGrayColor;
+    [item setTitleTextAttributes:disabledStatus forState:UIControlStateDisabled];
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
