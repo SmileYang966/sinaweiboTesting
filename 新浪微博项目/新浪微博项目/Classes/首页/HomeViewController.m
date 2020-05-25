@@ -37,6 +37,21 @@
 
 -(void)titleViewButtonClicked:(UIButton *)button{
     NSLog(@"titleViewButtonClicked");
+    
+    //1.获取当前屏幕上最后一个window
+    UIWindow *keyWindow = [[UIApplication sharedApplication].windows lastObject];
+    
+    //2.添加蒙板
+    UIView *coverView = [[UIView alloc]initWithFrame:keyWindow.bounds];
+    coverView.backgroundColor = UIColor.clearColor;
+    [keyWindow addSubview:coverView];
+    
+    //3.注意图片的拉伸，只能是垂直方向的拉伸，水平方向不能拉伸，因为水平方向是有不规则图形的
+    UIImageView *dropDownMenu = [[UIImageView alloc]initWithFrame:CGRectMake(self.view.bounds.size.width*0.2f,64,217, 217)];
+    dropDownMenu.image = [UIImage imageNamed:@"popover_background"];
+    [keyWindow addSubview:dropDownMenu];
+    
+    
     button.selected = !button.selected;
     if (button.selected) {
         [button setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:UIControlStateNormal];
