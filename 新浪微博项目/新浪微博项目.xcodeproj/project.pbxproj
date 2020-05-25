@@ -21,6 +21,7 @@
 		71BC6C142478B04F004E1D77 /* UIView+FrameExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 71BC6C132478B04F004E1D77 /* UIView+FrameExtension.m */; };
 		71BC6C172478C88A004E1D77 /* SCNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71BC6C162478C88A004E1D77 /* SCNavigationController.m */; };
 		71BC6C2024790E8C004E1D77 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 71BC6C1F24790E8C004E1D77 /* UIBarButtonItem+Extension.m */; };
+		71D51843247BF23D00DE37CB /* UITextField+SearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D51842247BF23D00DE37CB /* UITextField+SearchBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,8 @@
 		71BC6C1E24790E8C004E1D77 /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
 		71BC6C1F24790E8C004E1D77 /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
 		71BC6C2124791325004E1D77 /* sinaPchFile.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sinaPchFile.pch; sourceTree = "<group>"; };
+		71D51841247BF23D00DE37CB /* UITextField+SearchBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextField+SearchBar.h"; sourceTree = "<group>"; };
+		71D51842247BF23D00DE37CB /* UITextField+SearchBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextField+SearchBar.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +116,8 @@
 				71BC6C132478B04F004E1D77 /* UIView+FrameExtension.m */,
 				71BC6C1E24790E8C004E1D77 /* UIBarButtonItem+Extension.h */,
 				71BC6C1F24790E8C004E1D77 /* UIBarButtonItem+Extension.m */,
+				71D51841247BF23D00DE37CB /* UITextField+SearchBar.h */,
+				71D51842247BF23D00DE37CB /* UITextField+SearchBar.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -245,6 +250,7 @@
 				71BC6BE72478897F004E1D77 /* AppDelegate.m in Sources */,
 				71BC6C0D24788B70004E1D77 /* ProfileViewController.m in Sources */,
 				71BC6C0A24788B5F004E1D77 /* DiscoverViewController.m in Sources */,
+				71D51843247BF23D00DE37CB /* UITextField+SearchBar.m in Sources */,
 				71BC6BF824788980004E1D77 /* main.m in Sources */,
 				71BC6C172478C88A004E1D77 /* SCNavigationController.m in Sources */,
 				71BC6C0424788B2B004E1D77 /* HomeViewController.m in Sources */,
