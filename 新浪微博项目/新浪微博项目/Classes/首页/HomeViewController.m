@@ -7,6 +7,7 @@
 //
 
 #import "HomeViewController.h"
+#import "SCDropdownView.h"
 
 @interface HomeViewController ()
 
@@ -41,24 +42,16 @@
     //1.获取当前屏幕上最后一个window
     UIWindow *keyWindow = [[UIApplication sharedApplication].windows lastObject];
     
-    //2.添加蒙板
-    UIView *coverView = [[UIView alloc]initWithFrame:keyWindow.bounds];
-    coverView.backgroundColor = UIColor.clearColor;
-    [keyWindow addSubview:coverView];
+    SCDropdownView *dropDownMenu = [SCDropdownView drowdownMenu];
+    [dropDownMenu show];
     
-    //3.注意图片的拉伸，只能是垂直方向的拉伸，水平方向不能拉伸，因为水平方向是有不规则图形的
-    UIImageView *dropDownMenu = [[UIImageView alloc]initWithFrame:CGRectMake(self.view.bounds.size.width*0.2f,64,217, 217)];
-    dropDownMenu.image = [UIImage imageNamed:@"popover_background"];
-    [keyWindow addSubview:dropDownMenu];
+    UITableView *contentView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0,200,217) style:UITableViewStyleGrouped];
+    contentView.backgroundColor = UIColor.redColor;
+    dropDownMenu.contentView = contentView;
     
     
-    button.selected = !button.selected;
-    if (button.selected) {
-        [button setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:UIControlStateNormal];
-    }else{
-        [button setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
-    }
 }
+
 
 -(void)friendSearch{
     

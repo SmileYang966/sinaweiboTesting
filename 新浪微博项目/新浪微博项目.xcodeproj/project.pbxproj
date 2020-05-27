@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		71545A48247DDAF6008B049A /* SCDropdownView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71545A47247DDAF6008B049A /* SCDropdownView.m */; };
 		71BC6BE72478897F004E1D77 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 71BC6BE62478897F004E1D77 /* AppDelegate.m */; };
 		71BC6BEA2478897F004E1D77 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 71BC6BE92478897F004E1D77 /* SceneDelegate.m */; };
 		71BC6BF224788980004E1D77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71BC6BF124788980004E1D77 /* Assets.xcassets */; };
@@ -27,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		71545A46247DDAF6008B049A /* SCDropdownView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDropdownView.h; sourceTree = "<group>"; };
+		71545A47247DDAF6008B049A /* SCDropdownView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDropdownView.m; sourceTree = "<group>"; };
 		71BC6BE22478897F004E1D77 /* 新浪微博项目.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "新浪微博项目.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		71BC6BE52478897F004E1D77 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		71BC6BE62478897F004E1D77 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -83,6 +86,17 @@
 				FD302CCF0562DEE246CD34CD /* Pods-新浪微博项目.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		71545A42247DDA1D008B049A /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				71D51846247BF6AD00DE37CB /* SearchBarView.h */,
+				71D51847247BF6AD00DE37CB /* SearchBarView.m */,
+				71545A46247DDAF6008B049A /* SCDropdownView.h */,
+				71545A47247DDAF6008B049A /* SCDropdownView.m */,
+			);
+			path = UIView;
 			sourceTree = "<group>";
 		};
 		71BC6BD92478897F004E1D77 = {
@@ -199,8 +213,7 @@
 		71D51845247BF5F700DE37CB /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				71D51846247BF6AD00DE37CB /* SearchBarView.h */,
-				71D51847247BF6AD00DE37CB /* SearchBarView.m */,
+				71545A42247DDA1D008B049A /* UIView */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -317,6 +330,7 @@
 				71BC6BF824788980004E1D77 /* main.m in Sources */,
 				71BC6C172478C88A004E1D77 /* SCNavigationController.m in Sources */,
 				71BC6C0424788B2B004E1D77 /* HomeViewController.m in Sources */,
+				71545A48247DDAF6008B049A /* SCDropdownView.m in Sources */,
 				71BC6BEA2478897F004E1D77 /* SceneDelegate.m in Sources */,
 				71BC6C102478A943004E1D77 /* UITestedViewController.m in Sources */,
 				71BC6C142478B04F004E1D77 /* UIView+FrameExtension.m in Sources */,
