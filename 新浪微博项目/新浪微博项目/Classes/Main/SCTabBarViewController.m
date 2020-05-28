@@ -28,6 +28,16 @@
     if (self = [super init]) {
         //1.添加子控制器
         [self addChildNavController];
+        
+        
+        UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(0,0,64,44)];
+        button.centerX = self.tabBar.centerX;
+        [button setBackgroundImage:[UIImage imageNamed:@"tabbar_compose_button"] forState:UIControlStateNormal];
+        [button setBackgroundImage:[UIImage imageNamed:@"tabbar_compose_button_highlighted"] forState:UIControlStateHighlighted];
+        [button setImage:[UIImage imageNamed:@"tabbar_compose_icon_add"] forState:UIControlStateNormal];
+        [button setImage:[UIImage imageNamed:@"tabbar_compose_icon_add_highlighted"] forState:UIControlStateHighlighted];
+        [self.tabBar addSubview:button];
+        
     }
     return self;
 }
@@ -45,6 +55,14 @@
     
     ProfileViewController *profile = [[ProfileViewController alloc]init];
     [self addViewControlerWithController:profile title:@"我" tabBarItemImageName:@"tabbar_profile" selectedTabBarItemImageName:@"tabbar_profile_selected"];
+    
+    
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    SCLog(@"self.tabBar.subviews=%@",self.tabBar.subviews);
 }
 
 -(void)addViewControlerWithController:(UIViewController *)controller title:(NSString *)title tabBarItemImageName:(NSString *)imageName selectedTabBarItemImageName:(NSString *)selectedImageName {
