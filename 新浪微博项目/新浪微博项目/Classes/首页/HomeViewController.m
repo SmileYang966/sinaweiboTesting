@@ -34,24 +34,33 @@
     titleViewButton.titleEdgeInsets = UIEdgeInsetsMake(0,0,0,20);
     [titleViewButton addTarget:self action:@selector(titleViewButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.titleView = titleViewButton;
+    
+    
+    UIButton *testedButton = [[UIButton alloc]initWithFrame:CGRectMake(100, 100, 100,30)];
+    testedButton.backgroundColor = UIColor.redColor;
+    [self.view addSubview:testedButton];
+    [testedButton addTarget:self action:@selector(testedButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)testedButtonClicked:(UIButton *)button{
+    SCDropdownView *dropDownMenu = [SCDropdownView drowdownMenu];
+    [dropDownMenu showFromView:button];
 }
 
 -(void)titleViewButtonClicked:(UIButton *)button{
     NSLog(@"titleViewButtonClicked");
     
-    //1.获取当前屏幕上最后一个window
-    UIWindow *keyWindow = [[UIApplication sharedApplication].windows lastObject];
-    
     SCDropdownView *dropDownMenu = [SCDropdownView drowdownMenu];
-    [dropDownMenu show];
+    [dropDownMenu showFromView:button];
     
     UITableView *contentView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0,200,217) style:UITableViewStyleGrouped];
     contentView.backgroundColor = UIColor.redColor;
     dropDownMenu.contentView = contentView;
-    
-    
 }
 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    
+}
 
 -(void)friendSearch{
     

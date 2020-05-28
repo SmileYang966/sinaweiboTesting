@@ -15,8 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong) UIView *contentView;
 
 +(instancetype)drowdownMenu;
--(void)show;
-
+-(void)showFromView:(UIView *)view;
+-(void)dismissView;
 @end
 
 NS_ASSUME_NONNULL_END

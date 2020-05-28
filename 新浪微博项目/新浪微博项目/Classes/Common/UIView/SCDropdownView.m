@@ -30,7 +30,7 @@
 }
 
 
--(void)show{
+-(void)showFromView:(UIView *)view{
     //1.获得最上层的窗口
     UIWindow *window = [[UIApplication sharedApplication].windows lastObject];
     
@@ -44,8 +44,12 @@
     self.containerView.width = 217;
     self.containerView.height = 217;
     [self addSubview:self.containerView];
+    
+    //4.转换坐标系
+    CGRect newFrame = [view.superview convertRect:view.frame toView:window];
+    self.containerView.y = newFrame.origin.y + 30;
+    self.containerView.centerX = newFrame.origin.x+newFrame.size.width*0.5f;
 }
-
 
 - (void)setContentView:(UIView *)contentView{
     _contentView = contentView;
@@ -62,6 +66,14 @@
     contentView.x = marginX;
     contentView.y = marginY;
     contentView.width = self.containerView.width - 2*marginX;
+}
+
+-(void)dismissView{
+    [self removeFromSuperview];
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    [self dismissView];
 }
 
 @end
