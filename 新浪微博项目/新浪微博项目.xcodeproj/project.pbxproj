@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		71545A48247DDAF6008B049A /* SCDropdownView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71545A47247DDAF6008B049A /* SCDropdownView.m */; };
+		71545A4C24807511008B049A /* SCTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 71545A4B24807511008B049A /* SCTabBar.m */; };
 		71BC6BE72478897F004E1D77 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 71BC6BE62478897F004E1D77 /* AppDelegate.m */; };
 		71BC6BEA2478897F004E1D77 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 71BC6BE92478897F004E1D77 /* SceneDelegate.m */; };
 		71BC6BF224788980004E1D77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71BC6BF124788980004E1D77 /* Assets.xcassets */; };
@@ -30,6 +31,8 @@
 /* Begin PBXFileReference section */
 		71545A46247DDAF6008B049A /* SCDropdownView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDropdownView.h; sourceTree = "<group>"; };
 		71545A47247DDAF6008B049A /* SCDropdownView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDropdownView.m; sourceTree = "<group>"; };
+		71545A4A24807511008B049A /* SCTabBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCTabBar.h; sourceTree = "<group>"; };
+		71545A4B24807511008B049A /* SCTabBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCTabBar.m; sourceTree = "<group>"; };
 		71BC6BE22478897F004E1D77 /* 新浪微博项目.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "新浪微博项目.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		71BC6BE52478897F004E1D77 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		71BC6BE62478897F004E1D77 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -88,15 +91,17 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		71545A42247DDA1D008B049A /* UIView */ = {
+		71545A49248074CE008B049A /* View */ = {
 			isa = PBXGroup;
 			children = (
 				71D51846247BF6AD00DE37CB /* SearchBarView.h */,
 				71D51847247BF6AD00DE37CB /* SearchBarView.m */,
 				71545A46247DDAF6008B049A /* SCDropdownView.h */,
 				71545A47247DDAF6008B049A /* SCDropdownView.m */,
+				71545A4A24807511008B049A /* SCTabBar.h */,
+				71545A4B24807511008B049A /* SCTabBar.m */,
 			);
-			path = UIView;
+			path = View;
 			sourceTree = "<group>";
 		};
 		71BC6BD92478897F004E1D77 = {
@@ -132,7 +137,6 @@
 		71BC6BFE247889FF004E1D77 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				71D51845247BF5F700DE37CB /* Common */,
 				71BC6C112478B011004E1D77 /* Categories */,
 				71BC6C1C2478FC70004E1D77 /* Main */,
 				71BC6C1B2478F4A6004E1D77 /* 个人中心 */,
@@ -197,6 +201,7 @@
 		71BC6C1C2478FC70004E1D77 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				71545A49248074CE008B049A /* View */,
 				71BC6BE52478897F004E1D77 /* AppDelegate.h */,
 				71BC6BE62478897F004E1D77 /* AppDelegate.m */,
 				71BC6BE82478897F004E1D77 /* SceneDelegate.h */,
@@ -208,14 +213,6 @@
 				71BC6C2124791325004E1D77 /* sinaPchFile.pch */,
 			);
 			path = Main;
-			sourceTree = "<group>";
-		};
-		71D51845247BF5F700DE37CB /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				71545A42247DDA1D008B049A /* UIView */,
-			);
-			path = Common;
 			sourceTree = "<group>";
 		};
 		CD1EA6E1BEFD0D935EFFE187 /* Frameworks */ = {
@@ -328,6 +325,7 @@
 				71BC6C0A24788B5F004E1D77 /* DiscoverViewController.m in Sources */,
 				71D51843247BF23D00DE37CB /* UITextField+SearchBar.m in Sources */,
 				71BC6BF824788980004E1D77 /* main.m in Sources */,
+				71545A4C24807511008B049A /* SCTabBar.m in Sources */,
 				71BC6C172478C88A004E1D77 /* SCNavigationController.m in Sources */,
 				71BC6C0424788B2B004E1D77 /* HomeViewController.m in Sources */,
 				71545A48247DDAF6008B049A /* SCDropdownView.m in Sources */,

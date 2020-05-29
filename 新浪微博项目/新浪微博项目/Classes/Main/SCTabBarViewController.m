@@ -12,6 +12,7 @@
 #import "DiscoverViewController.h"
 #import "ProfileViewController.h"
 #import "SCNavigationController.h"
+#import "SCTabBar.h"
 
 @interface SCTabBarViewController ()
 
@@ -29,7 +30,7 @@
         //1.添加子控制器
         [self addChildNavController];
         
-        
+        //1.将button加入到self.tabBar中去，并设置其frame
         UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(0,0,64,44)];
         button.centerX = self.tabBar.centerX;
         [button setBackgroundImage:[UIImage imageNamed:@"tabbar_compose_button"] forState:UIControlStateNormal];
@@ -37,7 +38,6 @@
         [button setImage:[UIImage imageNamed:@"tabbar_compose_icon_add"] forState:UIControlStateNormal];
         [button setImage:[UIImage imageNamed:@"tabbar_compose_icon_add_highlighted"] forState:UIControlStateHighlighted];
         [self.tabBar addSubview:button];
-        
     }
     return self;
 }
@@ -56,8 +56,11 @@
     ProfileViewController *profile = [[ProfileViewController alloc]init];
     [self addViewControlerWithController:profile title:@"我" tabBarItemImageName:@"tabbar_profile" selectedTabBarItemImageName:@"tabbar_profile_selected"];
     
-    
-    
+    //2.使用KVC的方式去替换掉原有的tabBar，而使用自定义的SCTabBar
+    SCLog(@"self.tabBar=%@",self.tabBar);
+    SCTabBar *newDefinedTabBar = [[SCTabBar alloc]init];
+    [self setValue:newDefinedTabBar forKey:@"tabBar"];
+    SCLog(@"newDefinedTabBar=%@",newDefinedTabBar);
 }
 
 - (void)viewWillAppear:(BOOL)animated{
