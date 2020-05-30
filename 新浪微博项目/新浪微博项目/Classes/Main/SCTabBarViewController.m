@@ -14,7 +14,7 @@
 #import "SCNavigationController.h"
 #import "SCTabBar.h"
 
-@interface SCTabBarViewController ()
+@interface SCTabBarViewController ()<SCTabBarDelegate>
 
 @end
 
@@ -29,18 +29,11 @@
     if (self = [super init]) {
         //1.添加子控制器
         [self addChildNavController];
-        
-        //1.将button加入到self.tabBar中去，并设置其frame
-        UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(0,0,64,44)];
-        button.centerX = self.tabBar.centerX;
-        [button setBackgroundImage:[UIImage imageNamed:@"tabbar_compose_button"] forState:UIControlStateNormal];
-        [button setBackgroundImage:[UIImage imageNamed:@"tabbar_compose_button_highlighted"] forState:UIControlStateHighlighted];
-        [button setImage:[UIImage imageNamed:@"tabbar_compose_icon_add"] forState:UIControlStateNormal];
-        [button setImage:[UIImage imageNamed:@"tabbar_compose_icon_add_highlighted"] forState:UIControlStateHighlighted];
-        [self.tabBar addSubview:button];
+
     }
     return self;
 }
+
 
 -(void)addChildNavController{
     
@@ -59,6 +52,7 @@
     //2.使用KVC的方式去替换掉原有的tabBar，而使用自定义的SCTabBar
     SCLog(@"self.tabBar=%@",self.tabBar);
     SCTabBar *newDefinedTabBar = [[SCTabBar alloc]init];
+    newDefinedTabBar.delegate = self;
     [self setValue:newDefinedTabBar forKey:@"tabBar"];
     SCLog(@"newDefinedTabBar=%@",newDefinedTabBar);
 }
@@ -82,6 +76,12 @@
     SCNavigationController *nav = [[SCNavigationController alloc]initWithRootViewController:controller];
     
     [self addChildViewController:nav];
+}
+
+-(void)scTabBarClickedPlusButton:(SCTabBar *)tabBar{
+    UIViewController *vc = [[UIViewController alloc]init];
+    vc.view.backgroundColor = UIColor.blueColor;
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 

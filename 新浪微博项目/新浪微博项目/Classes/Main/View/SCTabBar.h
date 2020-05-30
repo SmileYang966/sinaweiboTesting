@@ -10,7 +10,17 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class SCTabBar;
+
+@protocol SCTabBarDelegate <UITabBarDelegate>
+
+-(void)scTabBarClickedPlusButton:(SCTabBar *)tabBar;
+
+@end
+
 @interface SCTabBar : UITabBar
+
+@property(nonatomic,weak) id<SCTabBarDelegate> delegate;
 
 @end
 
