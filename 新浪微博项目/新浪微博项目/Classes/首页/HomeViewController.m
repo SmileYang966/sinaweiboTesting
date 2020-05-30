@@ -59,11 +59,14 @@
     contentView.backgroundColor = UIColor.redColor;
     dropDownMenu.contentView = contentView;
     
-    [button setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:UIControlStateNormal];
 }
 
 - (void)dropDownMenuDisappearClicked{
     [self.titleViewButton setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
+}
+
+- (void)dropDownMenuAppearClicked{
+    [self.titleViewButton setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:UIControlStateNormal];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{

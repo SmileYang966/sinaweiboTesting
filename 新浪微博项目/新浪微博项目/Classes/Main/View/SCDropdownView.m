@@ -66,6 +66,10 @@
     contentView.x = marginX;
     contentView.y = marginY;
     contentView.width = self.containerView.width - 2*marginX;
+    
+    if ([self.delegate respondsToSelector:@selector(dropDownMenuAppearClicked)]) {
+        [self.delegate dropDownMenuAppearClicked];
+    }
 }
 
 -(void)dismissView{

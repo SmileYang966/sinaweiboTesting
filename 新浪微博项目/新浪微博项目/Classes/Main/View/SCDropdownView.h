@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol SCDropdownMenuDelegate <NSObject>
 
 -(void)dropDownMenuDisappearClicked;
+-(void)dropDownMenuAppearClicked;
 
 @end
 
