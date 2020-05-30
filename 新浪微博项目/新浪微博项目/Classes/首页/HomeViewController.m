@@ -9,8 +9,8 @@
 #import "HomeViewController.h"
 #import "SCDropdownView.h"
 
-@interface HomeViewController ()
-
+@interface HomeViewController ()<SCDropdownMenuDelegate>
+@property(nonatomic,strong)UIButton *titleViewButton;
 @end
 
 @implementation HomeViewController
@@ -34,6 +34,7 @@
     titleViewButton.titleEdgeInsets = UIEdgeInsetsMake(0,0,0,20);
     [titleViewButton addTarget:self action:@selector(titleViewButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.titleView = titleViewButton;
+    self.titleViewButton = titleViewButton;
     
     
     UIButton *testedButton = [[UIButton alloc]initWithFrame:CGRectMake(100, 100, 100,30)];
@@ -51,11 +52,18 @@
     NSLog(@"titleViewButtonClicked");
     
     SCDropdownView *dropDownMenu = [SCDropdownView drowdownMenu];
+    dropDownMenu.delegate = self;
     [dropDownMenu showFromView:button];
     
     UITableView *contentView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0,200,217) style:UITableViewStyleGrouped];
     contentView.backgroundColor = UIColor.redColor;
     dropDownMenu.contentView = contentView;
+    
+    [button setImage:[UIImage imageNamed:@"navigationbar_arrow_up"] forState:UIControlStateNormal];
+}
+
+- (void)dropDownMenuDisappearClicked{
+    [self.titleViewButton setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{

@@ -10,9 +10,16 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol SCDropdownMenuDelegate <NSObject>
+
+-(void)dropDownMenuDisappearClicked;
+
+@end
+
 @interface SCDropdownView : UIView
 
 @property(nonatomic,strong) UIView *contentView;
+@property(nonatomic,weak)id<SCDropdownMenuDelegate> delegate;
 
 +(instancetype)drowdownMenu;
 -(void)showFromView:(UIView *)view;

@@ -70,6 +70,9 @@
 
 -(void)dismissView{
     [self removeFromSuperview];
+    if ([self.delegate respondsToSelector:@selector(dropDownMenuDisappearClicked)]) {
+        [self.delegate dropDownMenuDisappearClicked];
+    }
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
