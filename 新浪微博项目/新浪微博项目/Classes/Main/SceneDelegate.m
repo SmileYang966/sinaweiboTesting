@@ -1,5 +1,6 @@
 #import "SceneDelegate.h"
 #import "SCTabBarViewController.h"
+#import "NewFeaturesViewController.h"
 
 @interface SceneDelegate ()
 
@@ -16,7 +17,8 @@
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     [self.window setWindowScene:(UIWindowScene *)scene];
     SCTabBarViewController *tabBarVC = [[SCTabBarViewController alloc]init];
-    self.window.rootViewController = tabBarVC;
+    NewFeaturesViewController *newFeatureController = [[NewFeaturesViewController alloc]init];
+    self.window.rootViewController = newFeatureController;
     [self.window makeKeyAndVisible];
 }
 

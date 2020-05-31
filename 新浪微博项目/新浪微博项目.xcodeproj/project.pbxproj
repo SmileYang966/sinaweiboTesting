@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		714DBB9B2483202400150DFD /* NewFeaturesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 714DBB9A2483202400150DFD /* NewFeaturesViewController.m */; };
 		71545A48247DDAF6008B049A /* SCDropdownView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71545A47247DDAF6008B049A /* SCDropdownView.m */; };
 		71545A4C24807511008B049A /* SCTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 71545A4B24807511008B049A /* SCTabBar.m */; };
 		71BC6BE72478897F004E1D77 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 71BC6BE62478897F004E1D77 /* AppDelegate.m */; };
@@ -29,6 +30,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		714DBB992483202400150DFD /* NewFeaturesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewFeaturesViewController.h; sourceTree = "<group>"; };
+		714DBB9A2483202400150DFD /* NewFeaturesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewFeaturesViewController.m; sourceTree = "<group>"; };
 		71545A46247DDAF6008B049A /* SCDropdownView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCDropdownView.h; sourceTree = "<group>"; };
 		71545A47247DDAF6008B049A /* SCDropdownView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCDropdownView.m; sourceTree = "<group>"; };
 		71545A4A24807511008B049A /* SCTabBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCTabBar.h; sourceTree = "<group>"; };
@@ -91,6 +94,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		714DBB98248247C700150DFD /* NewFeatures */ = {
+			isa = PBXGroup;
+			children = (
+				714DBB992483202400150DFD /* NewFeaturesViewController.h */,
+				714DBB9A2483202400150DFD /* NewFeaturesViewController.m */,
+			);
+			path = NewFeatures;
+			sourceTree = "<group>";
+		};
 		71545A49248074CE008B049A /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +149,7 @@
 		71BC6BFE247889FF004E1D77 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				714DBB98248247C700150DFD /* NewFeatures */,
 				71BC6C112478B011004E1D77 /* Categories */,
 				71BC6C1C2478FC70004E1D77 /* Main */,
 				71BC6C1B2478F4A6004E1D77 /* 个人中心 */,
@@ -334,6 +347,7 @@
 				71BC6C142478B04F004E1D77 /* UIView+FrameExtension.m in Sources */,
 				71D51848247BF6AD00DE37CB /* SearchBarView.m in Sources */,
 				71BC6C0724788B49004E1D77 /* MessageCenterViewController.m in Sources */,
+				714DBB9B2483202400150DFD /* NewFeaturesViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,6 +485,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "/Users/ray/sinaweiboTesting/新浪微博项目/新浪微博项目/Classes/Main/sinaPchFile.pch";
 				INFOPLIST_FILE = "新浪微博项目/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -491,6 +506,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "/Users/ray/sinaweiboTesting/新浪微博项目/新浪微博项目/Classes/Main/sinaPchFile.pch";
 				INFOPLIST_FILE = "新浪微博项目/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
