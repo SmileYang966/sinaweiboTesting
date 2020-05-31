@@ -79,6 +79,9 @@
     [lastImageView addSubview:shareButton];
     [shareButton setTitle:@"分享给大家" forState:UIControlStateNormal];
     [shareButton setImage:[UIImage imageNamed:@"new_feature_share_false"] forState:UIControlStateNormal];
+//    shareButton.backgroundColor = UIColor.redColor;
+    shareButton.imageEdgeInsets = UIEdgeInsetsMake(0,-10,0,0);
+    shareButton.titleEdgeInsets = UIEdgeInsetsMake(0,10,0,0);
     [shareButton addTarget:self action:@selector(shareButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     shareButton.centerY = lastImageView.height * 0.77f;
     shareButton.centerX = lastImageView.width * 0.5f;

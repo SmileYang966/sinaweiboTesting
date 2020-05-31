@@ -16,9 +16,27 @@
     
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     [self.window setWindowScene:(UIWindowScene *)scene];
-    SCTabBarViewController *tabBarVC = [[SCTabBarViewController alloc]init];
-    NewFeaturesViewController *newFeatureController = [[NewFeaturesViewController alloc]init];
-    self.window.rootViewController = newFeatureController;
+    
+    
+    //获取上一次存储的版本号
+    NSString *key = @"CFBundleVersion";
+    NSString *lastVersion = [[NSUserDefaults standardUserDefaults] objectForKey:key];
+    
+    //获取当前存储的版本号
+    NSString *currentVersion = [NSBundle mainBundle].infoDictionary[key];
+    
+    //版本号相同，不进入新特性界面
+    if ([currentVersion isEqualToString:lastVersion]) {
+        SCTabBarViewController *tabBarVC = [[SCTabBarViewController alloc]init];
+        self.window.rootViewController = tabBarVC;
+    }else{
+        NewFeaturesViewController *newFeatureController = [[NewFeaturesViewController alloc]init];
+        self.window.rootViewController = newFeatureController;
+        [[NSUserDefaults standardUserDefaults] setObject:currentVersion forKey:key];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    
+    
     [self.window makeKeyAndVisible];
 }
 
