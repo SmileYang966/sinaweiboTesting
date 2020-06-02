@@ -8,6 +8,7 @@
 
 #import "NewFeaturesViewController.h"
 #import "Masonry.h"
+#import "SCTabBarViewController.h"
 
 @interface NewFeaturesViewController ()<UIScrollViewDelegate>
 
@@ -74,17 +75,23 @@
     [startedButton setBackgroundImage:[UIImage imageNamed:@"new_feature_finish_button_highlighted"] forState:UIControlStateSelected];
     [startedButton setTitle:@"开始微博" forState:UIControlStateNormal];
     [startedButton setTitleColor:UIColor.blackColor forState:UIControlStateNormal];
+    [startedButton addTarget:self action:@selector(startedButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    
     
     UIButton *shareButton = [[UIButton alloc]initWithFrame:CGRectMake(100,100, 200, 40)];
     [lastImageView addSubview:shareButton];
     [shareButton setTitle:@"分享给大家" forState:UIControlStateNormal];
     [shareButton setImage:[UIImage imageNamed:@"new_feature_share_false"] forState:UIControlStateNormal];
-//    shareButton.backgroundColor = UIColor.redColor;
     shareButton.imageEdgeInsets = UIEdgeInsetsMake(0,-10,0,0);
     shareButton.titleEdgeInsets = UIEdgeInsetsMake(0,10,0,0);
     [shareButton addTarget:self action:@selector(shareButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     shareButton.centerY = lastImageView.height * 0.77f;
     shareButton.centerX = lastImageView.width * 0.5f;
+}
+
+-(void)startedButtonClicked:(UIButton *)startedButton{
+    SCTabBarViewController *tabBarVC = [[SCTabBarViewController alloc]init];
+    [UIApplication sharedApplication].keyWindow.rootViewController = tabBarVC;
 }
 
 -(void)shareButtonClicked:(UIButton *)sharedButton{
