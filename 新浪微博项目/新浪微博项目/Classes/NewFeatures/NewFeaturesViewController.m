@@ -91,7 +91,7 @@
 
 -(void)startedButtonClicked:(UIButton *)startedButton{
     SCTabBarViewController *tabBarVC = [[SCTabBarViewController alloc]init];
-    [UIApplication sharedApplication].keyWindow.rootViewController = tabBarVC;
+    [UIApplication sharedApplication].windows.firstObject.rootViewController = tabBarVC;
 }
 
 -(void)shareButtonClicked:(UIButton *)sharedButton{

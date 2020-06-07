@@ -1,6 +1,8 @@
 #import "SceneDelegate.h"
 #import "SCTabBarViewController.h"
 #import "NewFeaturesViewController.h"
+#import "OAuthViewController.h"
+#import "AccountModel.h"
 
 @interface SceneDelegate ()
 
@@ -18,25 +20,36 @@
     [self.window setWindowScene:(UIWindowScene *)scene];
     
     
-    //获取上一次存储的版本号
-    NSString *key = @"CFBundleVersion";
-    NSString *lastVersion = [[NSUserDefaults standardUserDefaults] objectForKey:key];
+    NSString *docDirPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+     NSString *filePath = [docDirPath stringByAppendingPathComponent:@"account.archive"];
     
-    //获取当前存储的版本号
-    NSString *currentVersion = [NSBundle mainBundle].infoDictionary[key];
     
-    //版本号相同，不进入新特性界面
-    if ([currentVersion isEqualToString:lastVersion]) {
-        SCTabBarViewController *tabBarVC = [[SCTabBarViewController alloc]init];
-        self.window.rootViewController = tabBarVC;
+    AccountModel *account = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
+    
+    
+    if (account != nil) {//已经有账号了
+        
+        //获取上一次存储的版本号
+        NSString *key = @"CFBundleVersion";
+        NSString *lastVersion = [[NSUserDefaults standardUserDefaults] objectForKey:key];
+        
+        //获取当前存储的版本号
+        NSString *currentVersion = [NSBundle mainBundle].infoDictionary[key];
+        
+        //版本号相同，不进入新特性界面
+        if ([currentVersion isEqualToString:lastVersion]) {
+            SCTabBarViewController *tabBarVC = [[SCTabBarViewController alloc]init];
+            self.window.rootViewController = tabBarVC;
+        }else{
+            NewFeaturesViewController *newFeatureController = [[NewFeaturesViewController alloc]init];
+            self.window.rootViewController = newFeatureController;
+            [[NSUserDefaults standardUserDefaults] setObject:currentVersion forKey:key];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+        }
     }else{
-        NewFeaturesViewController *newFeatureController = [[NewFeaturesViewController alloc]init];
-        self.window.rootViewController = newFeatureController;
-        [[NSUserDefaults standardUserDefaults] setObject:currentVersion forKey:key];
-        [[NSUserDefaults standardUserDefaults] synchronize];
+        OAuthViewController *authVc = [[OAuthViewController alloc]init];
+        self.window.rootViewController = authVc;
     }
-    
-    
     [self.window makeKeyAndVisible];
 }
 
