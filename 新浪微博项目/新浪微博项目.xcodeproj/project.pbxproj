@@ -12,6 +12,9 @@
 		71545A4C24807511008B049A /* SCTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 71545A4B24807511008B049A /* SCTabBar.m */; };
 		71ACF15C248B8F14003BAD6A /* OAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71ACF15B248B8F14003BAD6A /* OAuthViewController.m */; };
 		71ACF161248C7CF3003BAD6A /* AccountModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 71ACF160248C7CF3003BAD6A /* AccountModel.m */; };
+		71ACF169248C8D36003BAD6A /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 71ACF164248C8D36003BAD6A /* MBProgressHUD.m */; };
+		71ACF16A248C8D36003BAD6A /* MBProgressHUD+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 71ACF167248C8D36003BAD6A /* MBProgressHUD+MJ.m */; };
+		71ACF16B248C8D36003BAD6A /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 71ACF168248C8D36003BAD6A /* MBProgressHUD.bundle */; };
 		71BC6BE72478897F004E1D77 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 71BC6BE62478897F004E1D77 /* AppDelegate.m */; };
 		71BC6BEA2478897F004E1D77 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 71BC6BE92478897F004E1D77 /* SceneDelegate.m */; };
 		71BC6BF224788980004E1D77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71BC6BF124788980004E1D77 /* Assets.xcassets */; };
@@ -42,6 +45,11 @@
 		71ACF15B248B8F14003BAD6A /* OAuthViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OAuthViewController.m; sourceTree = "<group>"; };
 		71ACF15F248C7CF3003BAD6A /* AccountModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountModel.h; sourceTree = "<group>"; };
 		71ACF160248C7CF3003BAD6A /* AccountModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccountModel.m; sourceTree = "<group>"; };
+		71ACF164248C8D36003BAD6A /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		71ACF165248C8D36003BAD6A /* MBProgressHUD+MJ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+MJ.h"; sourceTree = "<group>"; };
+		71ACF166248C8D36003BAD6A /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		71ACF167248C8D36003BAD6A /* MBProgressHUD+MJ.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+MJ.m"; sourceTree = "<group>"; };
+		71ACF168248C8D36003BAD6A /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
 		71BC6BE22478897F004E1D77 /* 新浪微博项目.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "新浪微博项目.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		71BC6BE52478897F004E1D77 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		71BC6BE62478897F004E1D77 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -149,6 +157,26 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		71ACF162248C8D05003BAD6A /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				71ACF163248C8D36003BAD6A /* MBProgressHUD */,
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		71ACF163248C8D36003BAD6A /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				71ACF164248C8D36003BAD6A /* MBProgressHUD.m */,
+				71ACF165248C8D36003BAD6A /* MBProgressHUD+MJ.h */,
+				71ACF166248C8D36003BAD6A /* MBProgressHUD.h */,
+				71ACF167248C8D36003BAD6A /* MBProgressHUD+MJ.m */,
+				71ACF168248C8D36003BAD6A /* MBProgressHUD.bundle */,
+			);
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
 		71BC6BD92478897F004E1D77 = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +198,7 @@
 		71BC6BE42478897F004E1D77 /* 新浪微博项目 */ = {
 			isa = PBXGroup;
 			children = (
+				71ACF162248C8D05003BAD6A /* Vendor */,
 				71BC6BFE247889FF004E1D77 /* Classes */,
 				71BC6BF124788980004E1D77 /* Assets.xcassets */,
 				71BC6BF324788980004E1D77 /* LaunchScreen.storyboard */,
@@ -330,6 +359,7 @@
 			files = (
 				71BC6BF524788980004E1D77 /* LaunchScreen.storyboard in Resources */,
 				71BC6BF224788980004E1D77 /* Assets.xcassets in Resources */,
+				71ACF16B248C8D36003BAD6A /* MBProgressHUD.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,6 +402,7 @@
 				71ACF161248C7CF3003BAD6A /* AccountModel.m in Sources */,
 				71BC6C0A24788B5F004E1D77 /* DiscoverViewController.m in Sources */,
 				71D51843247BF23D00DE37CB /* UITextField+SearchBar.m in Sources */,
+				71ACF169248C8D36003BAD6A /* MBProgressHUD.m in Sources */,
 				71BC6BF824788980004E1D77 /* main.m in Sources */,
 				71545A4C24807511008B049A /* SCTabBar.m in Sources */,
 				71BC6C172478C88A004E1D77 /* SCNavigationController.m in Sources */,
@@ -382,6 +413,7 @@
 				71BC6C102478A943004E1D77 /* UITestedViewController.m in Sources */,
 				71BC6C142478B04F004E1D77 /* UIView+FrameExtension.m in Sources */,
 				71D51848247BF6AD00DE37CB /* SearchBarView.m in Sources */,
+				71ACF16A248C8D36003BAD6A /* MBProgressHUD+MJ.m in Sources */,
 				71BC6C0724788B49004E1D77 /* MessageCenterViewController.m in Sources */,
 				714DBB9B2483202400150DFD /* NewFeaturesViewController.m in Sources */,
 			);

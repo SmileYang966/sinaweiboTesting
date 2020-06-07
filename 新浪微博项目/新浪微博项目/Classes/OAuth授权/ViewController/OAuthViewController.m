@@ -12,6 +12,7 @@
 #import "SCTabBarViewController.h"
 #import "NewFeaturesViewController.h"
 
+
 @interface OAuthViewController ()
 
 @end
@@ -43,12 +44,19 @@
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
     SCLog(@"webViewDidFinishLoad");
+    [MBProgressHUD hideHUD];
 }
 
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
     SCLog(@"webViewDidStartLoad");
+    [MBProgressHUD showMessage:@"正在加载中..."];
 }
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{
+    [MBProgressHUD hideHUD];
+}
+
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
@@ -83,6 +91,8 @@
     
     [mgr POST:@"https://api.weibo.com/oauth2/access_token" parameters:params headers:nil progress:^(NSProgress * _Nonnull uploadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary * responseObject) {
+        
+        [MBProgressHUD hideHUD];
         NSLog(@"responseObject=%@",responseObject);
         
        NSString *docDirPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
@@ -113,6 +123,7 @@
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"error=%@",error);
+        [MBProgressHUD hideHUD];
     }];
 }
 

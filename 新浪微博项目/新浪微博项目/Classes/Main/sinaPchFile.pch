@@ -22,4 +22,6 @@
 #define SCLog(...)
 #endif
 
+#import "MBProgressHUD+MJ.h"
+
 #endif /* sinaPchFile_pch */
