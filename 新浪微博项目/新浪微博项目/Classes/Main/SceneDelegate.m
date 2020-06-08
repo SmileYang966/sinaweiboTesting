@@ -20,13 +20,7 @@
     [self.window setWindowScene:(UIWindowScene *)scene];
     
     
-    NSString *docDirPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-     NSString *filePath = [docDirPath stringByAppendingPathComponent:@"account.archive"];
-    
-    
-    AccountModel *account = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
-    
-    
+    AccountModel *account = [SCAccountTool fetchAccount];
     if (account != nil) {//已经有账号了
         
         //获取上一次存储的版本号

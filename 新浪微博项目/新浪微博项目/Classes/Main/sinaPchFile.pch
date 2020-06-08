@@ -23,5 +23,6 @@
 #endif
 
 #import "MBProgressHUD+MJ.h"
+#import "SCAccountTool.h"
 
 #endif /* sinaPchFile_pch */

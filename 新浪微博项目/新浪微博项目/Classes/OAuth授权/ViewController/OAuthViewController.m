@@ -13,6 +13,7 @@
 #import "NewFeaturesViewController.h"
 
 
+
 @interface OAuthViewController ()
 
 @end
@@ -94,13 +95,9 @@
         
         [MBProgressHUD hideHUD];
         NSLog(@"responseObject=%@",responseObject);
-        
-       NSString *docDirPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-        NSString *filePath = [docDirPath stringByAppendingPathComponent:@"account.archive"];
-        NSLog(@"filePath is %@",filePath);
-        
+                
         AccountModel *accountModel = [AccountModel accountWithDict:responseObject];
-        [NSKeyedArchiver archiveRootObject:accountModel toFile:filePath];
+        [SCAccountTool saveAccount:accountModel];
         
         //获取上一次存储的版本号
         NSString *key = @"CFBundleVersion";

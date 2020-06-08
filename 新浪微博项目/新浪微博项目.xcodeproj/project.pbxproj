@@ -31,6 +31,7 @@
 		71BC6C2024790E8C004E1D77 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 71BC6C1F24790E8C004E1D77 /* UIBarButtonItem+Extension.m */; };
 		71D51843247BF23D00DE37CB /* UITextField+SearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D51842247BF23D00DE37CB /* UITextField+SearchBar.m */; };
 		71D51848247BF6AD00DE37CB /* SearchBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D51847247BF6AD00DE37CB /* SearchBarView.m */; };
+		71DCB2A3248EE95E00C2412E /* SCAccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 71DCB2A2248EE95E00C2412E /* SCAccountTool.m */; };
 		A5FE29FFAFE17BFC079CF507 /* libPods-新浪微博项目.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CB3CD3CFF776E6CD2ACB296B /* libPods-新浪微博项目.a */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +83,8 @@
 		71D51842247BF23D00DE37CB /* UITextField+SearchBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextField+SearchBar.m"; sourceTree = "<group>"; };
 		71D51846247BF6AD00DE37CB /* SearchBarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchBarView.h; sourceTree = "<group>"; };
 		71D51847247BF6AD00DE37CB /* SearchBarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchBarView.m; sourceTree = "<group>"; };
+		71DCB2A1248EE95E00C2412E /* SCAccountTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCAccountTool.h; sourceTree = "<group>"; };
+		71DCB2A2248EE95E00C2412E /* SCAccountTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCAccountTool.m; sourceTree = "<group>"; };
 		B42D4FC68B734993FE8E954B /* Pods-新浪微博项目.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-新浪微博项目.debug.xcconfig"; path = "Target Support Files/Pods-新浪微博项目/Pods-新浪微博项目.debug.xcconfig"; sourceTree = "<group>"; };
 		CB3CD3CFF776E6CD2ACB296B /* libPods-新浪微博项目.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-新浪微博项目.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD302CCF0562DEE246CD34CD /* Pods-新浪微博项目.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-新浪微博项目.release.xcconfig"; path = "Target Support Files/Pods-新浪微博项目/Pods-新浪微博项目.release.xcconfig"; sourceTree = "<group>"; };
@@ -133,6 +136,7 @@
 		71ACF153248B7C4D003BAD6A /* OAuth授权 */ = {
 			isa = PBXGroup;
 			children = (
+				71DCB2A0248EE94000C2412E /* Tool */,
 				71ACF15E248C7CB8003BAD6A /* ViewController */,
 				71ACF15D248C7CAE003BAD6A /* Model */,
 			);
@@ -291,6 +295,15 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
+		71DCB2A0248EE94000C2412E /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				71DCB2A1248EE95E00C2412E /* SCAccountTool.h */,
+				71DCB2A2248EE95E00C2412E /* SCAccountTool.m */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
 		CD1EA6E1BEFD0D935EFFE187 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -412,6 +425,7 @@
 				71ACF15C248B8F14003BAD6A /* OAuthViewController.m in Sources */,
 				71BC6C102478A943004E1D77 /* UITestedViewController.m in Sources */,
 				71BC6C142478B04F004E1D77 /* UIView+FrameExtension.m in Sources */,
+				71DCB2A3248EE95E00C2412E /* SCAccountTool.m in Sources */,
 				71D51848247BF6AD00DE37CB /* SearchBarView.m in Sources */,
 				71ACF16A248C8D36003BAD6A /* MBProgressHUD+MJ.m in Sources */,
 				71BC6C0724788B49004E1D77 /* MessageCenterViewController.m in Sources */,
