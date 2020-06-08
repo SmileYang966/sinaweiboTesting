@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign) BOOL isRealName;
 @property(nonatomic,copy) NSString *remind_in;
 @property(nonatomic,copy) NSString *uid;
+@property(nonatomic,strong) NSDate *createTime;
 
 +(instancetype)accountWithDict:(NSDictionary *)dict;
 

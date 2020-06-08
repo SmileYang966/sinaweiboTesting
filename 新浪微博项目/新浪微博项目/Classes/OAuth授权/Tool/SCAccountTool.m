@@ -7,8 +7,8 @@
 //
 
 #import "SCAccountTool.h"
+#import "AccountModel.h"
 
-@class AccountModel;
 
 @implementation SCAccountTool
 
@@ -22,6 +22,15 @@
     NSString *docDirPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
     NSString *filePath = [docDirPath stringByAppendingPathComponent:@"account.archive"];
     AccountModel *account = [NSKeyedUnarchiver unarchiveObjectWithFile:filePath];
+    
+    //如果账号过期了，怎么办？？？
+    long long expires_in = [account.expires_in longLongValue];
+    NSDate *expiresTime = [account.createTime dateByAddingTimeInterval:expires_in];
+    NSDate *now = [NSDate now];
+    if ([expiresTime compare:now] == kCFCompareGreaterThan) {//过期了
+        return nil;
+    }
+    
     return account;
 }
 
