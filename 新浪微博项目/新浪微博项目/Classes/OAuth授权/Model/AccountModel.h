@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,copy) NSString *remind_in;
 @property(nonatomic,copy) NSString *uid;
 @property(nonatomic,strong) NSDate *createTime;
+@property(nonatomic,copy) NSString *name;
 
 +(instancetype)accountWithDict:(NSDictionary *)dict;
 

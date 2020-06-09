@@ -19,8 +19,6 @@
     accountModel.uid = dict[@"uid"];
     accountModel.isRealName = dict[@"isRealName"];
     
-    
-    
     accountModel.createTime = NSDate.now;
     
     return accountModel;
@@ -34,6 +32,7 @@
     [encoder encodeObject:self.uid forKey:@"uid"];
     [encoder encodeBool:self.isRealName forKey:@"isRealName"];
     [encoder encodeObject:self.createTime forKey:@"createTime"];
+    [encoder encodeObject:self.name forKey:@"name"];
 }
 
 - (instancetype)initWithCoder:(NSCoder *)decoder{
@@ -44,6 +43,7 @@
         self.uid = [decoder decodeObjectForKey:@"uid"];
         self.isRealName = [decoder decodeObjectForKey:@"isRealName"];
         self.createTime = [decoder decodeObjectForKey:@"createTime"];
+        self.name = [decoder decodeObjectForKey:@"name"];
     }
     return self;
 }

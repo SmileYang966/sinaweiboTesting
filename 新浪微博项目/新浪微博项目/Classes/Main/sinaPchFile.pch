@@ -15,6 +15,7 @@
 #import "UIView+FrameExtension.h"
 #import "UIBarButtonItem+Extension.h"
 #import "UITextField+SearchBar.h"
+#import "AFNetworking.h"
 
 #ifdef DEBUG//处于开发阶段
 #define SCLog(...) NSLog(__VA_ARGS__);
