@@ -32,6 +32,7 @@
 		71D51843247BF23D00DE37CB /* UITextField+SearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D51842247BF23D00DE37CB /* UITextField+SearchBar.m */; };
 		71D51848247BF6AD00DE37CB /* SearchBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D51847247BF6AD00DE37CB /* SearchBarView.m */; };
 		71DCB2A3248EE95E00C2412E /* SCAccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 71DCB2A2248EE95E00C2412E /* SCAccountTool.m */; };
+		71DCB2AA24904B5800C2412E /* SCHomeTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 71DCB2A924904B5800C2412E /* SCHomeTitleButton.m */; };
 		A5FE29FFAFE17BFC079CF507 /* libPods-新浪微博项目.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CB3CD3CFF776E6CD2ACB296B /* libPods-新浪微博项目.a */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +86,8 @@
 		71D51847247BF6AD00DE37CB /* SearchBarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchBarView.m; sourceTree = "<group>"; };
 		71DCB2A1248EE95E00C2412E /* SCAccountTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCAccountTool.h; sourceTree = "<group>"; };
 		71DCB2A2248EE95E00C2412E /* SCAccountTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCAccountTool.m; sourceTree = "<group>"; };
+		71DCB2A824904B5800C2412E /* SCHomeTitleButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCHomeTitleButton.h; sourceTree = "<group>"; };
+		71DCB2A924904B5800C2412E /* SCHomeTitleButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCHomeTitleButton.m; sourceTree = "<group>"; };
 		B42D4FC68B734993FE8E954B /* Pods-新浪微博项目.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-新浪微博项目.debug.xcconfig"; path = "Target Support Files/Pods-新浪微博项目/Pods-新浪微博项目.debug.xcconfig"; sourceTree = "<group>"; };
 		CB3CD3CFF776E6CD2ACB296B /* libPods-新浪微博项目.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-新浪微博项目.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD302CCF0562DEE246CD34CD /* Pods-新浪微博项目.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-新浪微博项目.release.xcconfig"; path = "Target Support Files/Pods-新浪微博项目/Pods-新浪微博项目.release.xcconfig"; sourceTree = "<group>"; };
@@ -243,8 +246,9 @@
 		71BC6C182478F46F004E1D77 /* 首页 */ = {
 			isa = PBXGroup;
 			children = (
-				71BC6C0224788B2B004E1D77 /* HomeViewController.h */,
-				71BC6C0324788B2B004E1D77 /* HomeViewController.m */,
+				71DCB2A724904B2900C2412E /* Model */,
+				71DCB2A624904B2100C2412E /* Controller */,
+				71DCB2A524904B1700C2412E /* View */,
 			);
 			path = "首页";
 			sourceTree = "<group>";
@@ -302,6 +306,31 @@
 				71DCB2A2248EE95E00C2412E /* SCAccountTool.m */,
 			);
 			path = Tool;
+			sourceTree = "<group>";
+		};
+		71DCB2A524904B1700C2412E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				71DCB2A824904B5800C2412E /* SCHomeTitleButton.h */,
+				71DCB2A924904B5800C2412E /* SCHomeTitleButton.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		71DCB2A624904B2100C2412E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				71BC6C0224788B2B004E1D77 /* HomeViewController.h */,
+				71BC6C0324788B2B004E1D77 /* HomeViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		71DCB2A724904B2900C2412E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		CD1EA6E1BEFD0D935EFFE187 /* Frameworks */ = {
@@ -420,6 +449,7 @@
 				71545A4C24807511008B049A /* SCTabBar.m in Sources */,
 				71BC6C172478C88A004E1D77 /* SCNavigationController.m in Sources */,
 				71BC6C0424788B2B004E1D77 /* HomeViewController.m in Sources */,
+				71DCB2AA24904B5800C2412E /* SCHomeTitleButton.m in Sources */,
 				71545A48247DDAF6008B049A /* SCDropdownView.m in Sources */,
 				71BC6BEA2478897F004E1D77 /* SceneDelegate.m in Sources */,
 				71ACF15C248B8F14003BAD6A /* OAuthViewController.m in Sources */,

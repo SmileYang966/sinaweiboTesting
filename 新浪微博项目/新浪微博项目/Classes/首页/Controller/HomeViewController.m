@@ -9,6 +9,7 @@
 #import "HomeViewController.h"
 #import "SCDropdownView.h"
 #import "AccountModel.h"
+#import "SCHomeTitleButton.h"
 
 @interface HomeViewController ()<SCDropdownMenuDelegate>
 @property(nonatomic,strong)UIButton *titleViewButton;
@@ -34,22 +35,20 @@
     
     self.navigationItem.rightBarButtonItem = [UIBarButtonItem barButtonwithTarget:self action:@selector(scanSearch) imageName:@"navigationbar_pop" selectedImageName:@"navigationbar_pop_highlighted"];
     
+    
     AccountModel *account = [SCAccountTool fetchAccount];
-    UIButton *titleViewButton = [[UIButton alloc]initWithFrame:CGRectMake(0,0,150,40)];
+    SCHomeTitleButton *titleViewButton = [[SCHomeTitleButton alloc]init];
     [titleViewButton setTitle:(account.name==nil ? @"首页" : account.name) forState:UIControlStateNormal];
-    [titleViewButton setTitleColor:UIColor.blackColor forState:UIControlStateNormal];
-    [titleViewButton setImage:[UIImage imageNamed:@"navigationbar_arrow_down"] forState:UIControlStateNormal];;
-    titleViewButton.imageEdgeInsets = UIEdgeInsetsMake(0,130,0,0);
-    titleViewButton.titleEdgeInsets = UIEdgeInsetsMake(0,0,0,20);
     [titleViewButton addTarget:self action:@selector(titleViewButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.titleView = titleViewButton;
     self.titleViewButton = titleViewButton;
     
-    
+    /*
     UIButton *testedButton = [[UIButton alloc]initWithFrame:CGRectMake(100, 100, 100,30)];
     testedButton.backgroundColor = UIColor.redColor;
     [self.view addSubview:testedButton];
     [testedButton addTarget:self action:@selector(testedButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+     */
 }
 
 -(void)setupUserInfo{
