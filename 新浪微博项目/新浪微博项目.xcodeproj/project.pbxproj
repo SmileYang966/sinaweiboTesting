@@ -45,6 +45,8 @@
 		71CC88622495ACAE00893E91 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CC884C2495ACAE00893E91 /* UIImageView+WebCache.m */; };
 		71CC88632495ACAE00893E91 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CC884F2495ACAE00893E91 /* UIView+WebCacheOperation.m */; };
 		71CC88642495ACAE00893E91 /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CC88532495ACAE00893E91 /* UIButton+WebCache.m */; };
+		71CC88682495D38300893E91 /* SCStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CC88672495D38300893E91 /* SCStatus.m */; };
+		71CC886B2495D39E00893E91 /* SCUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CC886A2495D39E00893E91 /* SCUser.m */; };
 		71D51843247BF23D00DE37CB /* UITextField+SearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D51842247BF23D00DE37CB /* UITextField+SearchBar.m */; };
 		71D51848247BF6AD00DE37CB /* SearchBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D51847247BF6AD00DE37CB /* SearchBarView.m */; };
 		71DCB2A3248EE95E00C2412E /* SCAccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 71DCB2A2248EE95E00C2412E /* SCAccountTool.m */; };
@@ -129,6 +131,10 @@
 		71CC88522495ACAE00893E91 /* UIImage+MultiFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+MultiFormat.h"; sourceTree = "<group>"; };
 		71CC88532495ACAE00893E91 /* UIButton+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+WebCache.m"; sourceTree = "<group>"; };
 		71CC88542495ACAE00893E91 /* UIImage+GIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+GIF.h"; sourceTree = "<group>"; };
+		71CC88662495D38300893E91 /* SCStatus.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCStatus.h; sourceTree = "<group>"; };
+		71CC88672495D38300893E91 /* SCStatus.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCStatus.m; sourceTree = "<group>"; };
+		71CC88692495D39E00893E91 /* SCUser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCUser.h; sourceTree = "<group>"; };
+		71CC886A2495D39E00893E91 /* SCUser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCUser.m; sourceTree = "<group>"; };
 		71D51841247BF23D00DE37CB /* UITextField+SearchBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITextField+SearchBar.h"; sourceTree = "<group>"; };
 		71D51842247BF23D00DE37CB /* UITextField+SearchBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UITextField+SearchBar.m"; sourceTree = "<group>"; };
 		71D51846247BF6AD00DE37CB /* SearchBarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchBarView.h; sourceTree = "<group>"; };
@@ -419,6 +425,10 @@
 		71DCB2A724904B2900C2412E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				71CC88662495D38300893E91 /* SCStatus.h */,
+				71CC88672495D38300893E91 /* SCStatus.m */,
+				71CC88692495D39E00893E91 /* SCUser.h */,
+				71CC886A2495D39E00893E91 /* SCUser.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -542,10 +552,12 @@
 				71CC88622495ACAE00893E91 /* UIImageView+WebCache.m in Sources */,
 				71BC6BF824788980004E1D77 /* main.m in Sources */,
 				71545A4C24807511008B049A /* SCTabBar.m in Sources */,
+				71CC88682495D38300893E91 /* SCStatus.m in Sources */,
 				71BC6C172478C88A004E1D77 /* SCNavigationController.m in Sources */,
 				71BC6C0424788B2B004E1D77 /* HomeViewController.m in Sources */,
 				71DCB2AA24904B5800C2412E /* SCHomeTitleButton.m in Sources */,
 				71545A48247DDAF6008B049A /* SCDropdownView.m in Sources */,
+				71CC886B2495D39E00893E91 /* SCUser.m in Sources */,
 				71BC6BEA2478897F004E1D77 /* SceneDelegate.m in Sources */,
 				71ACF15C248B8F14003BAD6A /* OAuthViewController.m in Sources */,
 				71CC885B2495ACAE00893E91 /* UIImage+GIF.m in Sources */,
