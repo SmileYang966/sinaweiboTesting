@@ -11,23 +11,52 @@
 #import "AccountModel.h"
 #import "SCHomeTitleButton.h"
 
-@interface HomeViewController ()<SCDropdownMenuDelegate>
+@interface HomeViewController ()<SCDropdownMenuDelegate,UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong)UIButton *titleViewButton;
+@property(nonatomic,strong)AccountModel *accountModel;
+@property(nonatomic,strong)UITableView *tableView;
+
+//TableView datasource
+@property(nonatomic,strong)NSMutableArray *statuses;
 @end
 
 @implementation HomeViewController
+
+- (UITableView *)tableView{
+    if (_tableView == nil) {
+        _tableView = [[UITableView alloc]initWithFrame:self.view.bounds style:UITableViewStyleGrouped];
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+        _tableView.rowHeight = 64.0f;
+        [self.view addSubview:_tableView];
+    }
+    return _tableView;
+}
+
+- (NSMutableArray *)statuses{
+    if (_statuses == nil) {
+        _statuses = [NSMutableArray array];
+    }
+    return _statuses;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    
+    [self tableView];
+    
     self.view.backgroundColor = UIColor.whiteColor;
     
-    //设置导航栏相关的内容
+    //1.设置导航栏相关的内容
     [self setupNav];
     
-    //设置用户信息相关
+    //2.设置用户信息相关
     [self setupUserInfo];
+    
+    //3.请求最新的数据
+    [self loadData];
 }
 
 - (void)setupNav{
@@ -37,6 +66,7 @@
     
     
     AccountModel *account = [SCAccountTool fetchAccount];
+    self.accountModel = account;
     SCHomeTitleButton *titleViewButton = [[SCHomeTitleButton alloc]init];
     [titleViewButton setTitle:(account.name==nil ? @"首页" : account.name) forState:UIControlStateNormal];
     [titleViewButton addTarget:self action:@selector(titleViewButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
@@ -63,7 +93,6 @@
     };
     
     [mgr GET:@"https://api.weibo.com/2/users/show.json" parameters:dict headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        int a = 10;
         NSString *nameStr = responseObject[@"name"];
         accountModel.name = nameStr;
         //存进沙盒
@@ -74,6 +103,27 @@
         NSLog(@"responseObject=%@",responseObject);
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         int  b = 20;
+    }];
+}
+
+
+-(void)loadData{
+    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    [params setValue:self.accountModel.access_token forKey:@"access_token"];
+    
+    
+    [mgr GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:params headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        NSArray *array = responseObject[@"statuses"];
+        for (NSDictionary *dict in array) {
+            [self.statuses addObject:dict];
+        }
+        [self.tableView reloadData];
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
     }];
 }
 
@@ -113,6 +163,28 @@
 
 -(void)scanSearch{
     
+}
+
+
+#pragma mark Tableview
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.statuses.count;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    static NSString *ID = @"CELL";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:ID];
+    }
+    NSDictionary *dict = self.statuses[indexPath.row];
+    cell.textLabel.text = dict[@"text"];
+    
+    return cell;
 }
 
 @end
