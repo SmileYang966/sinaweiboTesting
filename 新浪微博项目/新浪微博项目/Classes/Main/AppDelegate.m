@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "SDWebImageManager.h"
 
 @interface AppDelegate ()
 
@@ -37,5 +38,13 @@
     // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
 }
 
+- (void)applicationDidReceiveMemoryWarning:(UIApplication *)application{
+    
+    //取消下载
+    [[SDWebImageManager sharedManager] cancelAll];
+    
+    //清除图片缓存中的所有图片
+    [[SDWebImageManager sharedManager].imageCache clearMemory];
+}
 
 @end
