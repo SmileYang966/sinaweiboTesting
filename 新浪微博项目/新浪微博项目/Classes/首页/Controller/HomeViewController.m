@@ -10,6 +10,7 @@
 #import "SCDropdownView.h"
 #import "AccountModel.h"
 #import "SCHomeTitleButton.h"
+#import "UIImageView+WebCache.h"
 
 @interface HomeViewController ()<SCDropdownMenuDelegate,UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong)UIButton *titleViewButton;
@@ -117,6 +118,7 @@
     [mgr GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:params headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         NSArray *array = responseObject[@"statuses"];
+        NSLog(@"array is %@",array);
         for (NSDictionary *dict in array) {
             [self.statuses addObject:dict];
         }
@@ -179,10 +181,16 @@
     static NSString *ID = @"CELL";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:ID];
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
     }
     NSDictionary *dict = self.statuses[indexPath.row];
-    cell.textLabel.text = dict[@"text"];
+    NSDictionary *userDict = dict[@"user"];
+    cell.textLabel.text = userDict[@"screen_name"];
+    cell.detailTextLabel.text = dict[@"text"];
+    
+    NSURL *url = [NSURL URLWithString:userDict[@"profile_image_url"]];
+    UIImage *placeholderImage = [UIImage imageNamed:@"avatar_default_small"];
+    [cell.imageView sd_setImageWithURL:url placeholderImage:placeholderImage];
     
     return cell;
 }
