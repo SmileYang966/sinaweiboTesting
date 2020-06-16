@@ -14,6 +14,7 @@
 
 #import "SCUser.h"
 #import "SCStatus.h"
+#import "MJExtension.h"
 
 @interface HomeViewController ()<SCDropdownMenuDelegate,UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong)UIButton *titleViewButton;
@@ -98,7 +99,7 @@
     
     [mgr GET:@"https://api.weibo.com/2/users/show.json" parameters:dict headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
-        SCUser *user = [SCUser userWithDict:responseObject];
+        SCUser *user = [SCUser objectWithKeyValues:responseObject];
         NSString *nameStr = user.name;
         accountModel.name = nameStr;
         //存进沙盒
@@ -127,7 +128,7 @@
         for (NSDictionary *dict in array) {
 //            [self.statuses addObject:dict];
             
-            SCStatus *status = [SCStatus statusWithDict:dict];
+            SCStatus *status = [SCStatus objectWithKeyValues:dict];
             [self.statuses addObject:status];
         }
         [self.tableView reloadData];

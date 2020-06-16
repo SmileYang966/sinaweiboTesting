@@ -8,15 +8,10 @@
 
 #import "SCStatus.h"
 #import "SCUser.h"
+#import "MJExtension.h"
 
 @implementation SCStatus
 
-+ (instancetype)statusWithDict:(NSDictionary *)dict{
-    SCStatus *status = [[SCStatus alloc]init];
-    status.idstr = dict[@"idstr"];
-    status.text = dict[@"text"];
-    status.user = [SCUser userWithDict:dict[@"user"]];
-    return status;
-}
+
 
 @end
