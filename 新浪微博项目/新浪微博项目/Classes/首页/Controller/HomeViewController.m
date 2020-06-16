@@ -12,6 +12,9 @@
 #import "SCHomeTitleButton.h"
 #import "UIImageView+WebCache.h"
 
+#import "SCUser.h"
+#import "SCStatus.h"
+
 @interface HomeViewController ()<SCDropdownMenuDelegate,UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong)UIButton *titleViewButton;
 @property(nonatomic,strong)AccountModel *accountModel;
@@ -94,7 +97,9 @@
     };
     
     [mgr GET:@"https://api.weibo.com/2/users/show.json" parameters:dict headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSString *nameStr = responseObject[@"name"];
+        
+        SCUser *user = [SCUser userWithDict:responseObject];
+        NSString *nameStr = user.name;
         accountModel.name = nameStr;
         //存进沙盒
         [SCAccountTool saveAccount:accountModel];
@@ -120,7 +125,10 @@
         NSArray *array = responseObject[@"statuses"];
         NSLog(@"array is %@",array);
         for (NSDictionary *dict in array) {
-            [self.statuses addObject:dict];
+//            [self.statuses addObject:dict];
+            
+            SCStatus *status = [SCStatus statusWithDict:dict];
+            [self.statuses addObject:status];
         }
         [self.tableView reloadData];
         
@@ -183,12 +191,12 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
     }
-    NSDictionary *dict = self.statuses[indexPath.row];
-    NSDictionary *userDict = dict[@"user"];
-    cell.textLabel.text = userDict[@"screen_name"];
-    cell.detailTextLabel.text = dict[@"text"];
+    SCStatus *status = self.statuses[indexPath.row];
+    SCUser *user = status.user;
+    cell.textLabel.text = user.name;
+    cell.detailTextLabel.text = status.text;
     
-    NSURL *url = [NSURL URLWithString:userDict[@"profile_image_url"]];
+    NSURL *url = [NSURL URLWithString:user.profile_image_url];
     UIImage *placeholderImage = [UIImage imageNamed:@"avatar_default_small"];
     [cell.imageView sd_setImageWithURL:url placeholderImage:placeholderImage];
     
