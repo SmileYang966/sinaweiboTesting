@@ -65,13 +65,28 @@
     
     //4.添加下拉刷新控件
     [self addRefreshControl];
+    
+    //5.添加上拉刷新控件
+    [self pullUpRefresh];
 }
+
 
 -(void)addRefreshControl{
     //1.添加下拉刷新
     UIRefreshControl *control = [[UIRefreshControl alloc]init];
     [control addTarget:self action:@selector(refreshValueChanged:) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:control];
+    
+    //2.开始刷新
+    [control beginRefreshing];
+    
+    //3.立即刷新
+    [self refreshValueChanged:control];
+}
+
+//上拉刷新
+-(void)pullUpRefresh{
+    
 }
 
 -(void)refreshValueChanged:(UIRefreshControl *)control{
