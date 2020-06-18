@@ -62,6 +62,50 @@
     
     //3.请求最新的数据
     [self loadData];
+    
+    //4.添加下拉刷新控件
+    [self addRefreshControl];
+}
+
+-(void)addRefreshControl{
+    //1.添加下拉刷新
+    UIRefreshControl *control = [[UIRefreshControl alloc]init];
+    [control addTarget:self action:@selector(refreshValueChanged:) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:control];
+}
+
+-(void)refreshValueChanged:(UIRefreshControl *)control{
+    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    
+    //取出第一条微博数据的sinceId
+    SCStatus *firstStatus = [self.statuses firstObject];
+    if (firstStatus != nil) {
+        [params setValue:firstStatus.idstr forKey:@"since_id"];
+    }
+    [params setValue:self.accountModel.access_token forKey:@"access_token"];
+    [mgr GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:params headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSArray *array = responseObject[@"statuses"];
+        NSMutableArray *newestStatuses = [NSMutableArray array];
+        NSLog(@"array is %@",array);
+        for (NSDictionary *dict in array) {
+            SCStatus *status = [SCStatus objectWithKeyValues:dict];
+            [newestStatuses addObject:status];
+        }
+        
+        //将最新获取到的数据加载到微博最前面
+        NSRange range = NSMakeRange(0,newestStatuses.count);
+        NSIndexSet *set = [[NSIndexSet alloc]initWithIndexesInRange:range];
+        [self.statuses insertObjects:newestStatuses atIndexes:set];
+        
+        [self.tableView reloadData];
+        
+        //停止刷新数据
+        [control endRefreshing];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        //停止刷新数据
+        [control endRefreshing];
+    }];
 }
 
 - (void)setupNav{
@@ -116,23 +160,16 @@
 
 -(void)loadData{
     AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
-    
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     [params setValue:self.accountModel.access_token forKey:@"access_token"];
-    
-    
     [mgr GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:params headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
         NSArray *array = responseObject[@"statuses"];
         NSLog(@"array is %@",array);
         for (NSDictionary *dict in array) {
-//            [self.statuses addObject:dict];
-            
             SCStatus *status = [SCStatus objectWithKeyValues:dict];
             [self.statuses addObject:status];
         }
         [self.tableView reloadData];
-        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
     }];
