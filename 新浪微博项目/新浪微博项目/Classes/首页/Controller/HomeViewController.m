@@ -117,9 +117,36 @@
         
         //停止刷新数据
         [control endRefreshing];
+        
+        //有一个UILabel显示刷新数据的个数
+        [self updatedRefreshStatusCount:array.count];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         //停止刷新数据
         [control endRefreshing];
+    }];
+}
+
+-(void)updatedRefreshStatusCount:(NSInteger)count{
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0,0,self.view.bounds.size.width,44)];
+    label.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"timeline_new_status_background"]];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.y = 64-label.height;
+    [self.navigationController.view insertSubview:label belowSubview:self.navigationController.navigationBar];
+    
+    if (count == 0) {//没有相关数据更新
+        label.text = @"没有新的微博数据";
+    }else{//更新了count个数据
+        label.text = [NSString stringWithFormat:@"更新了%ld条数据",count];
+    }
+    
+    [UIView animateWithDuration:1.0f animations:^{
+        label.transform = CGAffineTransformMakeTranslation(0,label.height);
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:1.0f delay:1.0f options:UIViewAnimationOptionCurveLinear animations:^{
+            label.transform = CGAffineTransformIdentity;
+        } completion:^(BOOL finished) {
+            [label removeFromSuperview];
+        }];
     }];
 }
 
