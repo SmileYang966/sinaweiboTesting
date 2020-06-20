@@ -70,11 +70,7 @@
     //5.添加上拉刷新控件
     [self pullUpRefresh];
     
-    //6.上拉刷新
-    [self pullUpRefresh];
-    
     //7.设置未读消息数
-    
     NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:60 repeats:YES block:^(NSTimer * _Nonnull timer) {
         [self setupUnreadCount];
     }];
@@ -147,11 +143,9 @@
 #pragma mark - 4.上拉刷新
 //上拉刷新
 -(void)pullUpRefresh{
-    if (self.statuses.count != 0) {
-            self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-            [self loadPullUpRefreshData];
-        }];
-    }
+    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+    [self loadPullUpRefreshData];
+    }];
 }
 
 //上拉刷新更多数据
