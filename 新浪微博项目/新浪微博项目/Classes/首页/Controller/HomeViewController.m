@@ -72,22 +72,74 @@
     
     //6.上拉刷新
     [self pullUpRefresh];
+    
+    //7.设置未读用户数
 }
 
-
--(void)addRefreshControl{
-    //1.添加下拉刷新
-    UIRefreshControl *control = [[UIRefreshControl alloc]init];
-    [control addTarget:self action:@selector(refreshValueChanged:) forControlEvents:UIControlEventValueChanged];
-    [self.tableView addSubview:control];
+#pragma mark 1.设置导航栏相关
+- (void)setupNav{
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem barButtonwithTarget:self action:@selector(friendSearch) imageName:@"navigationbar_friendsearch" selectedImageName:@"navigationbar_friendsearch_highlighted"];
     
-    //2.开始刷新
-    [control beginRefreshing];
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem barButtonwithTarget:self action:@selector(scanSearch) imageName:@"navigationbar_pop" selectedImageName:@"navigationbar_pop_highlighted"];
     
-    //3.立即刷新
-    [self refreshValueChanged:control];
+    
+    AccountModel *account = [SCAccountTool fetchAccount];
+    self.accountModel = account;
+    SCHomeTitleButton *titleViewButton = [[SCHomeTitleButton alloc]init];
+    [titleViewButton setTitle:(account.name==nil ? @"首页" : account.name) forState:UIControlStateNormal];
+    [titleViewButton addTarget:self action:@selector(titleViewButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.titleView = titleViewButton;
+    self.titleViewButton = titleViewButton;
+    
 }
 
+#pragma mark 2.设置用户信息相关
+-(void)setupUserInfo{
+    
+    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
+    AccountModel *accountModel = [SCAccountTool fetchAccount];
+    NSString *accessToken = accountModel.access_token;
+    NSString *uid = accountModel.uid;
+    NSDictionary *dict = @{
+        @"access_token" : accessToken,
+        @"uid" : uid
+    };
+    
+    [mgr GET:@"https://api.weibo.com/2/users/show.json" parameters:dict headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        SCUser *user = [SCUser objectWithKeyValues:responseObject];
+        NSString *nameStr = user.name;
+        accountModel.name = nameStr;
+        //存进沙盒
+        [SCAccountTool saveAccount:accountModel];
+        
+        
+        [self.titleViewButton setTitle:nameStr forState:UIControlStateNormal];
+        NSLog(@"responseObject=%@",responseObject);
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        int  b = 20;
+    }];
+}
+
+#pragma mark 3.请求微博数据
+-(void)loadData{
+    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    [params setValue:self.accountModel.access_token forKey:@"access_token"];
+    [mgr GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:params headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSArray *array = responseObject[@"statuses"];
+        NSLog(@"array is %@",array);
+        for (NSDictionary *dict in array) {
+            SCStatus *status = [SCStatus objectWithKeyValues:dict];
+            [self.statuses addObject:status];
+        }
+        [self.tableView reloadData];
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
+}
+
+#pragma mark - 4.上拉刷新
 //上拉刷新
 -(void)pullUpRefresh{
     self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
@@ -95,6 +147,7 @@
     }];
 }
 
+//上拉刷新更多数据
 -(void)loadPullUpRefreshData{
     __weak typeof(self) weakself = self;
     
@@ -133,6 +186,20 @@
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
     }];
+}
+
+#pragma mark 5.下拉刷新
+-(void)addRefreshControl{
+    //1.添加下拉刷新
+    UIRefreshControl *control = [[UIRefreshControl alloc]init];
+    [control addTarget:self action:@selector(refreshValueChanged:) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:control];
+    
+    //2.开始刷新
+    [control beginRefreshing];
+    
+    //3.立即刷新
+    [self refreshValueChanged:control];
 }
 
 -(void)refreshValueChanged:(UIRefreshControl *)control{
@@ -196,73 +263,9 @@
     }];
 }
 
-- (void)setupNav{
-    self.navigationItem.leftBarButtonItem = [UIBarButtonItem barButtonwithTarget:self action:@selector(friendSearch) imageName:@"navigationbar_friendsearch" selectedImageName:@"navigationbar_friendsearch_highlighted"];
-    
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem barButtonwithTarget:self action:@selector(scanSearch) imageName:@"navigationbar_pop" selectedImageName:@"navigationbar_pop_highlighted"];
-    
-    
-    AccountModel *account = [SCAccountTool fetchAccount];
-    self.accountModel = account;
-    SCHomeTitleButton *titleViewButton = [[SCHomeTitleButton alloc]init];
-    [titleViewButton setTitle:(account.name==nil ? @"首页" : account.name) forState:UIControlStateNormal];
-    [titleViewButton addTarget:self action:@selector(titleViewButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.titleView = titleViewButton;
-    self.titleViewButton = titleViewButton;
-    
-    /*
-    UIButton *testedButton = [[UIButton alloc]initWithFrame:CGRectMake(100, 100, 100,30)];
-    testedButton.backgroundColor = UIColor.redColor;
-    [self.view addSubview:testedButton];
-    [testedButton addTarget:self action:@selector(testedButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
-     */
-}
-
--(void)setupUserInfo{
-    
-    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
-    AccountModel *accountModel = [SCAccountTool fetchAccount];
-    NSString *accessToken = accountModel.access_token;
-    NSString *uid = accountModel.uid;
-    NSDictionary *dict = @{
-        @"access_token" : accessToken,
-        @"uid" : uid
-    };
-    
-    [mgr GET:@"https://api.weibo.com/2/users/show.json" parameters:dict headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-        SCUser *user = [SCUser objectWithKeyValues:responseObject];
-        NSString *nameStr = user.name;
-        accountModel.name = nameStr;
-        //存进沙盒
-        [SCAccountTool saveAccount:accountModel];
-        
-        
-        [self.titleViewButton setTitle:nameStr forState:UIControlStateNormal];
-        NSLog(@"responseObject=%@",responseObject);
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        int  b = 20;
-    }];
-}
 
 
--(void)loadData{
-    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    [params setValue:self.accountModel.access_token forKey:@"access_token"];
-    [mgr GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:params headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSArray *array = responseObject[@"statuses"];
-        NSLog(@"array is %@",array);
-        for (NSDictionary *dict in array) {
-            SCStatus *status = [SCStatus objectWithKeyValues:dict];
-            [self.statuses addObject:status];
-        }
-        [self.tableView reloadData];
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
-    }];
-}
-
+#pragma mark Event clicked
 - (void)testedButtonClicked:(UIButton *)button{
     SCDropdownView *dropDownMenu = [SCDropdownView drowdownMenu];
     [dropDownMenu showFromView:button];
