@@ -73,7 +73,12 @@
     //6.上拉刷新
     [self pullUpRefresh];
     
-    //7.设置未读用户数
+    //7.设置未读消息数
+    
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:60 repeats:YES block:^(NSTimer * _Nonnull timer) {
+        [self setupUnreadCount];
+    }];
+    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
 }
 
 #pragma mark 1.设置导航栏相关
@@ -142,9 +147,11 @@
 #pragma mark - 4.上拉刷新
 //上拉刷新
 -(void)pullUpRefresh{
-    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-        [self loadPullUpRefreshData];
-    }];
+    if (self.statuses.count != 0) {
+            self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+            [self loadPullUpRefreshData];
+        }];
+    }
 }
 
 //上拉刷新更多数据
@@ -239,7 +246,15 @@
     }];
 }
 
+//刷新成功
 -(void)updatedRefreshStatusCount:(NSInteger)count{
+    
+    //刷新成功后清0操作
+    self.tabBarItem.badgeValue = nil;
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+    
+    
+    
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0,0,self.view.bounds.size.width,44)];
     label.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"timeline_new_status_background"]];
     label.textAlignment = NSTextAlignmentCenter;
@@ -263,6 +278,33 @@
     }];
 }
 
+
+#pragma mark 设置未读用户数
+-(void)setupUnreadCount{
+    //1.请求管理者
+    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
+    
+    //2.拼接请求参数
+    NSMutableDictionary *parms = [NSMutableDictionary dictionary];
+    AccountModel *account = [SCAccountTool  fetchAccount];
+    parms[@"access_token"]=account.access_token;
+    parms[@"uid"]=account.uid;
+    
+    //3.发送请求
+    [mgr GET:@"https://rm.api.weibo.com/2/remind/unread_count.json" parameters:parms headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        SCLog(@"responseObjec=%@",responseObject);
+        
+        int unreadCount = [responseObject[@"status"] intValue];
+        if (unreadCount == 0) {//不限时微博数为0的情况
+            self.tabBarItem.badgeValue = nil;
+        }else{
+            self.tabBarItem.badgeValue = [NSString stringWithFormat:@"%d",unreadCount];
+            [UIApplication sharedApplication].applicationIconBadgeNumber = unreadCount;
+        }
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+    }];
+}
 
 
 #pragma mark Event clicked

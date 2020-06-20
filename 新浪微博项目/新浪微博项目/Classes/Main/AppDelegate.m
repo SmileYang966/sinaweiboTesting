@@ -47,4 +47,10 @@
     [[SDWebImageManager sharedManager].imageCache clearMemory];
 }
 
+- (void)applicationDidEnterBackground:(UIApplication *)application{
+    UIBackgroundTaskIdentifier task = [application beginBackgroundTaskWithExpirationHandler:^{
+        [application endBackgroundTask:task];
+    }];
+}
+
 @end
