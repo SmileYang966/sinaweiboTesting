@@ -15,6 +15,7 @@
 #import "SCUser.h"
 #import "SCStatus.h"
 #import "MJExtension.h"
+#import "MJRefresh.h"
 
 @interface HomeViewController ()<SCDropdownMenuDelegate,UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong)UIButton *titleViewButton;
@@ -68,6 +69,9 @@
     
     //5.添加上拉刷新控件
     [self pullUpRefresh];
+    
+    //6.上拉刷新
+    [self pullUpRefresh];
 }
 
 
@@ -86,7 +90,49 @@
 
 //上拉刷新
 -(void)pullUpRefresh{
+    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        [self loadPullUpRefreshData];
+    }];
+}
+
+-(void)loadPullUpRefreshData{
+    __weak typeof(self) weakself = self;
     
+    AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
+    
+    //1.取出最后一条微博数据
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    SCStatus *lastStatus = [self.statuses lastObject];
+
+    //2.设定max_id
+    if (lastStatus) {
+        long long lastStatusId = [lastStatus.idstr longLongValue];
+        NSString *maxIdStr = [NSString stringWithFormat:@"%lld",lastStatusId-1];
+        [params setValue:maxIdStr forKey:@"max_id"];
+    }
+    
+    //3.设定access_token
+    [params setValue:self.accountModel.access_token forKey:@"access_token"];
+    
+    
+    [mgr GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:params headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        NSMutableArray *statusesArrayM = [NSMutableArray array];
+        NSArray *statusArray = responseObject[@"statuses"];
+        for (NSDictionary *dict in statusArray) {
+            SCStatus *status = [SCStatus objectWithKeyValues:dict];
+            [statusesArrayM addObject:status];
+        }
+        
+        [weakself.statuses addObjectsFromArray:statusesArrayM];
+        [weakself.tableView reloadData];
+        
+        [weakself.tableView.mj_footer endRefreshing];
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
 }
 
 -(void)refreshValueChanged:(UIRefreshControl *)control{
