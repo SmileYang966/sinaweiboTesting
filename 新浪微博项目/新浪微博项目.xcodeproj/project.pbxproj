@@ -46,6 +46,7 @@
 		71993C01249D875E009CD317 /* MJRefreshComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 71993BE7249D875E009CD317 /* MJRefreshComponent.m */; };
 		71993C02249D875E009CD317 /* MJRefreshTrailer.m in Sources */ = {isa = PBXBuildFile; fileRef = 71993BEA249D875E009CD317 /* MJRefreshTrailer.m */; };
 		71993C05249ED888009CD317 /* SCHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71993C04249ED888009CD317 /* SCHomeTableViewCell.m */; };
+		71993C08249EF6E7009CD317 /* SCStatusFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 71993C07249EF6E7009CD317 /* SCStatusFrame.m */; };
 		71ACF15C248B8F14003BAD6A /* OAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71ACF15B248B8F14003BAD6A /* OAuthViewController.m */; };
 		71ACF161248C7CF3003BAD6A /* AccountModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 71ACF160248C7CF3003BAD6A /* AccountModel.m */; };
 		71ACF169248C8D36003BAD6A /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 71ACF164248C8D36003BAD6A /* MBProgressHUD.m */; };
@@ -170,6 +171,8 @@
 		71993BEA249D875E009CD317 /* MJRefreshTrailer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshTrailer.m; sourceTree = "<group>"; };
 		71993C03249ED888009CD317 /* SCHomeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCHomeTableViewCell.h; sourceTree = "<group>"; };
 		71993C04249ED888009CD317 /* SCHomeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCHomeTableViewCell.m; sourceTree = "<group>"; };
+		71993C06249EF6E7009CD317 /* SCStatusFrame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCStatusFrame.h; sourceTree = "<group>"; };
+		71993C07249EF6E7009CD317 /* SCStatusFrame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCStatusFrame.m; sourceTree = "<group>"; };
 		71ACF15A248B8F14003BAD6A /* OAuthViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OAuthViewController.h; sourceTree = "<group>"; };
 		71ACF15B248B8F14003BAD6A /* OAuthViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OAuthViewController.m; sourceTree = "<group>"; };
 		71ACF15F248C7CF3003BAD6A /* AccountModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountModel.h; sourceTree = "<group>"; };
@@ -683,6 +686,8 @@
 				71CC88672495D38300893E91 /* SCStatus.m */,
 				71CC88692495D39E00893E91 /* SCUser.h */,
 				71CC886A2495D39E00893E91 /* SCUser.m */,
+				71993C06249EF6E7009CD317 /* SCStatusFrame.h */,
+				71993C07249EF6E7009CD317 /* SCStatusFrame.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -829,6 +834,7 @@
 				71BC6BF824788980004E1D77 /* main.m in Sources */,
 				71545A4C24807511008B049A /* SCTabBar.m in Sources */,
 				71CC88682495D38300893E91 /* SCStatus.m in Sources */,
+				71993C08249EF6E7009CD317 /* SCStatusFrame.m in Sources */,
 				71993BFE249D875E009CD317 /* MJRefreshHeader.m in Sources */,
 				71BC6C172478C88A004E1D77 /* SCNavigationController.m in Sources */,
 				71BC6C0424788B2B004E1D77 /* HomeViewController.m in Sources */,

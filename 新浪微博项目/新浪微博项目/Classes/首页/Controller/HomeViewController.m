@@ -16,6 +16,7 @@
 #import "SCStatus.h"
 #import "MJExtension.h"
 #import "MJRefresh.h"
+#import "SCHomeTableViewCell.h"
 
 @interface HomeViewController ()<SCDropdownMenuDelegate,UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong)UIButton *titleViewButton;
@@ -350,12 +351,14 @@
     return self.statuses.count;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 100.0f;
+}
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *ID = @"CELL";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
-    }
+    SCHomeTableViewCell *cell = [SCHomeTableViewCell cellwithTableView:tableView];
+    
+    /*
     SCStatus *status = self.statuses[indexPath.row];
     SCUser *user = status.user;
     cell.textLabel.text = user.name;
@@ -364,6 +367,7 @@
     NSURL *url = [NSURL URLWithString:user.profile_image_url];
     UIImage *placeholderImage = [UIImage imageNamed:@"avatar_default_small"];
     [cell.imageView sd_setImageWithURL:url placeholderImage:placeholderImage];
+     */
     
     return cell;
 }

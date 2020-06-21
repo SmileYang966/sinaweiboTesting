@@ -8,9 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+
 NS_ASSUME_NONNULL_BEGIN
 
+@class SCStatusFrame;
 @interface SCHomeTableViewCell : UITableViewCell
+
++(instancetype)cellwithTableView:(UITableView *)tableView;
+
+@property(nonatomic,strong) SCStatusFrame *statusFrame;
 
 @end
 
