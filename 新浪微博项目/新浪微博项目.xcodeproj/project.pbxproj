@@ -45,6 +45,7 @@
 		71993C00249D875E009CD317 /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 71993BE5249D875E009CD317 /* MJRefreshAutoFooter.m */; };
 		71993C01249D875E009CD317 /* MJRefreshComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 71993BE7249D875E009CD317 /* MJRefreshComponent.m */; };
 		71993C02249D875E009CD317 /* MJRefreshTrailer.m in Sources */ = {isa = PBXBuildFile; fileRef = 71993BEA249D875E009CD317 /* MJRefreshTrailer.m */; };
+		71993C05249ED888009CD317 /* SCHomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 71993C04249ED888009CD317 /* SCHomeTableViewCell.m */; };
 		71ACF15C248B8F14003BAD6A /* OAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71ACF15B248B8F14003BAD6A /* OAuthViewController.m */; };
 		71ACF161248C7CF3003BAD6A /* AccountModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 71ACF160248C7CF3003BAD6A /* AccountModel.m */; };
 		71ACF169248C8D36003BAD6A /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 71ACF164248C8D36003BAD6A /* MBProgressHUD.m */; };
@@ -167,6 +168,8 @@
 		71993BE8249D875E009CD317 /* MJRefreshFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshFooter.h; sourceTree = "<group>"; };
 		71993BE9249D875E009CD317 /* MJRefreshBackFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBackFooter.h; sourceTree = "<group>"; };
 		71993BEA249D875E009CD317 /* MJRefreshTrailer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshTrailer.m; sourceTree = "<group>"; };
+		71993C03249ED888009CD317 /* SCHomeTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCHomeTableViewCell.h; sourceTree = "<group>"; };
+		71993C04249ED888009CD317 /* SCHomeTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCHomeTableViewCell.m; sourceTree = "<group>"; };
 		71ACF15A248B8F14003BAD6A /* OAuthViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OAuthViewController.h; sourceTree = "<group>"; };
 		71ACF15B248B8F14003BAD6A /* OAuthViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OAuthViewController.m; sourceTree = "<group>"; };
 		71ACF15F248C7CF3003BAD6A /* AccountModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountModel.h; sourceTree = "<group>"; };
@@ -658,6 +661,8 @@
 			children = (
 				71DCB2A824904B5800C2412E /* SCHomeTitleButton.h */,
 				71DCB2A924904B5800C2412E /* SCHomeTitleButton.m */,
+				71993C03249ED888009CD317 /* SCHomeTableViewCell.h */,
+				71993C04249ED888009CD317 /* SCHomeTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -813,6 +818,7 @@
 				71993BF5249D875E009CD317 /* MJRefreshAutoStateFooter.m in Sources */,
 				71ACF169248C8D36003BAD6A /* MBProgressHUD.m in Sources */,
 				711BD76A2499820E0073F4EA /* MJIvar.m in Sources */,
+				71993C05249ED888009CD317 /* SCHomeTableViewCell.m in Sources */,
 				71993BF4249D875E009CD317 /* MJRefreshBackNormalFooter.m in Sources */,
 				711BD76C2499820E0073F4EA /* MJConst.m in Sources */,
 				711BD7692499820E0073F4EA /* NSObject+MJKeyValue.m in Sources */,
