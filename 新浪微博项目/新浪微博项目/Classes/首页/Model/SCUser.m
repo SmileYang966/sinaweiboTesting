@@ -10,5 +10,11 @@
 
 @implementation SCUser
 
+- (void)setMbtype:(int)mbtype{
+    _mbtype = mbtype;
+    if (_mbtype > 2) {
+        self.isVip = true;
+    }
+}
 
 @end

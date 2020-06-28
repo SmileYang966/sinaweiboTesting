@@ -366,18 +366,8 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     SCHomeTableViewCell *cell = [SCHomeTableViewCell cellwithTableView:tableView];
-    
-
     SCStatusFrame *statusF = self.statusFrameArrayM[indexPath.row];
-    SCUser *user = statusF.status.user;
-    cell.textLabel.text = user.name;
-    cell.detailTextLabel.text = statusF.status.text;
-    
-    NSURL *url = [NSURL URLWithString:user.profile_image_url];
-    UIImage *placeholderImage = [UIImage imageNamed:@"avatar_default_small"];
-    [cell.imageView sd_setImageWithURL:url placeholderImage:placeholderImage];
-    
-    
+    cell.statusFrame = statusF;
     return cell;
 }
 

@@ -107,10 +107,17 @@
     
     //name
     self.nameLabel.frame = statusFrame.nameLabelF;
+    self.nameLabel.font = [UIFont systemFontOfSize:15.0f];
+    self.nameLabel.backgroundColor = UIColor.redColor;
     self.nameLabel.text = user.name;
     
     //vip
     self.vipView.frame = statusFrame.vipViewF;
+    if (user.isVip) {
+        self.vipView.image = [UIImage imageNamed:@"common_icon_membership_level1"];
+    }else{
+        
+    }
     
     //time label
     self.timeLabel.frame = statusFrame.timeLabelF;

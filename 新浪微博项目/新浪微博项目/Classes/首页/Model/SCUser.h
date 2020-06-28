@@ -22,6 +22,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *profile_image_url;
 
 
+@property (nonatomic,assign) int mbtype;
+@property (nonatomic,assign) int mbrank;
+@property (nonatomic,assign) BOOL isVip;
+
 @end
 
 NS_ASSUME_NONNULL_END
