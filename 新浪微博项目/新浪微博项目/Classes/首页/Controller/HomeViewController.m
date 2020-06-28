@@ -17,6 +17,7 @@
 #import "MJExtension.h"
 #import "MJRefresh.h"
 #import "SCHomeTableViewCell.h"
+#import "SCStatusFrame.h"
 
 @interface HomeViewController ()<SCDropdownMenuDelegate,UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic,strong)UIButton *titleViewButton;
@@ -24,8 +25,9 @@
 @property(nonatomic,strong)UITableView *tableView;
 
 //TableView datasource
-@property(nonatomic,strong)NSMutableArray *statuses;
+@property(nonatomic,strong)NSMutableArray *statusFrameArrayM;
 @end
+
 
 @implementation HomeViewController
 
@@ -40,11 +42,11 @@
     return _tableView;
 }
 
-- (NSMutableArray *)statuses{
-    if (_statuses == nil) {
-        _statuses = [NSMutableArray array];
+- (NSMutableArray *)statusFrameArrayM{
+    if (_statusFrameArrayM == nil) {
+        _statusFrameArrayM = [NSMutableArray array];
     }
-    return _statuses;
+    return _statusFrameArrayM;
 }
 
 - (void)viewDidLoad {
@@ -132,12 +134,14 @@
         NSArray *array = responseObject[@"statuses"];
         NSLog(@"array is %@",array);
         for (NSDictionary *dict in array) {
+            SCStatusFrame *statusF = [[SCStatusFrame alloc]init];
             SCStatus *status = [SCStatus objectWithKeyValues:dict];
-            [self.statuses addObject:status];
+            statusF.status = status;
+            [self.statusFrameArrayM addObject:statusF];
         }
         [self.tableView reloadData];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
+        int a = 10;
     }];
 }
 
@@ -158,8 +162,9 @@
     //1.取出最后一条微博数据
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    SCStatus *lastStatus = [self.statuses lastObject];
-
+    SCStatusFrame *lastStatusF = [self.statusFrameArrayM lastObject];
+    SCStatus *lastStatus = lastStatusF.status;
+    
     //2.设定max_id
     if (lastStatus) {
         long long lastStatusId = [lastStatus.idstr longLongValue];
@@ -176,11 +181,13 @@
         NSMutableArray *statusesArrayM = [NSMutableArray array];
         NSArray *statusArray = responseObject[@"statuses"];
         for (NSDictionary *dict in statusArray) {
+            SCStatusFrame *statusF = [[SCStatusFrame alloc]init];
             SCStatus *status = [SCStatus objectWithKeyValues:dict];
-            [statusesArrayM addObject:status];
+            statusF.status = status;
+            [statusesArrayM addObject:statusF];
         }
         
-        [weakself.statuses addObjectsFromArray:statusesArrayM];
+        [weakself.statusFrameArrayM addObjectsFromArray:statusesArrayM];
         [weakself.tableView reloadData];
         
         [weakself.tableView.mj_footer endRefreshing];
@@ -209,9 +216,9 @@
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     
     //取出第一条微博数据的sinceId
-    SCStatus *firstStatus = [self.statuses firstObject];
-    if (firstStatus != nil) {
-        [params setValue:firstStatus.idstr forKey:@"since_id"];
+    SCStatusFrame *firstStatusF = [self.statusFrameArrayM firstObject];
+    if (firstStatusF != nil) {
+        [params setValue:firstStatusF.status.idstr forKey:@"since_id"];
     }
     [params setValue:self.accountModel.access_token forKey:@"access_token"];
     [mgr GET:@"https://api.weibo.com/2/statuses/friends_timeline.json" parameters:params headers:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -219,14 +226,16 @@
         NSMutableArray *newestStatuses = [NSMutableArray array];
         NSLog(@"array is %@",array);
         for (NSDictionary *dict in array) {
+            SCStatusFrame *statusF = [[SCStatusFrame alloc]init];
             SCStatus *status = [SCStatus objectWithKeyValues:dict];
-            [newestStatuses addObject:status];
+            statusF.status = status;
+            [newestStatuses addObject:statusF];
         }
         
         //将最新获取到的数据加载到微博最前面
         NSRange range = NSMakeRange(0,newestStatuses.count);
         NSIndexSet *set = [[NSIndexSet alloc]initWithIndexesInRange:range];
-        [self.statuses insertObjects:newestStatuses atIndexes:set];
+        [self.statusFrameArrayM insertObjects:newestStatuses atIndexes:set];
         
         [self.tableView reloadData];
         
@@ -348,7 +357,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.statuses.count;
+    return self.statusFrameArrayM.count;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -358,16 +367,16 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     SCHomeTableViewCell *cell = [SCHomeTableViewCell cellwithTableView:tableView];
     
-    /*
-    SCStatus *status = self.statuses[indexPath.row];
-    SCUser *user = status.user;
+
+    SCStatusFrame *statusF = self.statusFrameArrayM[indexPath.row];
+    SCUser *user = statusF.status.user;
     cell.textLabel.text = user.name;
-    cell.detailTextLabel.text = status.text;
+    cell.detailTextLabel.text = statusF.status.text;
     
     NSURL *url = [NSURL URLWithString:user.profile_image_url];
     UIImage *placeholderImage = [UIImage imageNamed:@"avatar_default_small"];
     [cell.imageView sd_setImageWithURL:url placeholderImage:placeholderImage];
-     */
+    
     
     return cell;
 }
