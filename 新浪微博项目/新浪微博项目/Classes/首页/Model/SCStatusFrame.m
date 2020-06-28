@@ -46,6 +46,19 @@
         CGFloat vipW = 14;
         self.vipViewF = CGRectMake(vipX, vipY, vipW, vipH);
     }
+    
+    //时间
+    CGFloat timeX = nameX;
+    CGFloat timeY = CGRectGetMaxY(self.nameLabelF) + IWStatusCellBorderW;
+    CGSize timeSize = [self sizeWithText:status.created_at font:[UIFont systemFontOfSize:15.0f]];
+    self.timeLabelF = CGRectMake(timeX, timeY, timeSize.width, timeSize.height);
+    
+    //来源
+    CGFloat sourceX = CGRectGetMaxX(self.timeLabelF) + IWStatusCellBorderW;
+    CGFloat sourceY = timeY;
+    CGSize sourceSize = [self sizeWithText:status.source font:[UIFont systemFontOfSize:15.0f]];
+    self.sourceLabelF =  CGRectMake(sourceX, sourceY, sourceSize.width, sourceSize.height);
+    
 }
 
 @end

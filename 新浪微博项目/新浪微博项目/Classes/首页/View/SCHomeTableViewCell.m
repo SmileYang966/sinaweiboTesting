@@ -49,7 +49,7 @@
 @implementation SCHomeTableViewCell
 
 + (instancetype)cellwithTableView:(UITableView *)tableView{
-    NSString *ID = @"cell";
+    NSString *ID = @"cellID";
     SCHomeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     if (cell == nil) {
         cell = [[SCHomeTableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
@@ -72,14 +72,17 @@
 
         /**是否是vip，如果是显示vip标示*/
         self.vipView = [[UIImageView alloc]init];
+        self.vipView.contentMode = UIViewContentModeCenter;
         [self.originalView addSubview:self.vipView];
 
         /**微博发送时间label*/
         self.timeLabel = [[UILabel alloc]init];
+        self.timeLabel.font = [UIFont systemFontOfSize:15.0f];
         [self.originalView addSubview:self.timeLabel];
 
         /**微博来源label*/
         self.sourceLabel = [[UILabel alloc]init];
+        self.sourceLabel.font = [UIFont systemFontOfSize:15.0f];
         [self.originalView addSubview:self.sourceLabel];
 
         /**正文*/
@@ -121,9 +124,11 @@
     
     //time label
     self.timeLabel.frame = statusFrame.timeLabelF;
+    self.timeLabel.text = status.created_at;
     
     //source label
     self.sourceLabel.frame = statusFrame.sourceLabelF;
+    self.sourceLabel.text = status.source;
     
     //content label
     self.contentLabel.frame = statusFrame.contentLabelF;

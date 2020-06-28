@@ -23,6 +23,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**    object    微博作者的用户信息字段 详细*/
 @property (nonatomic, strong) SCUser *user;
 
+@property (nonatomic, copy) NSString *created_at;
+
+@property (nonatomic, copy) NSString *source;
 
 @end
 
