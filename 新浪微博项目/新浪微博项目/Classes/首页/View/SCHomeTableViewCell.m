@@ -61,6 +61,7 @@
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         //1.原创微博整体
         self.originalView = [[UIView alloc]init];
+//        self.originalView.backgroundColor = UIColor.redColor;
         [self addSubview:self.originalView];
         
         //图标
@@ -87,6 +88,8 @@
 
         /**正文*/
         self.contentLabel = [[UILabel alloc]init];
+        self.contentLabel.font = [UIFont systemFontOfSize:13.0f];
+        self.contentLabel.numberOfLines = 0;
         [self.originalView addSubview:self.contentLabel];
 
         /**正文的imageView*/
@@ -104,6 +107,7 @@
     
     self.originalView.frame = statusFrame.originalViewF;
     
+    
     //Icon frame
     self.icon.frame = statusFrame.iconF;
     [self.icon sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url] placeholderImage:[UIImage imageNamed:@"avatar_default_small"]];
@@ -117,9 +121,11 @@
     //vip
     self.vipView.frame = statusFrame.vipViewF;
     if (user.isVip) {
-        self.vipView.image = [UIImage imageNamed:@"common_icon_membership_level1"];
+        self.vipView.hidden = NO;
+        self.vipView.image = [UIImage imageNamed:[NSString stringWithFormat:@"common_icon_membership_level%d",user.mbrank]];
+        ;
     }else{
-        
+        self.vipView.hidden = YES;
     }
     
     //time label

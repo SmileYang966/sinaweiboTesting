@@ -59,6 +59,21 @@
     CGSize sourceSize = [self sizeWithText:status.source font:[UIFont systemFontOfSize:15.0f]];
     self.sourceLabelF =  CGRectMake(sourceX, sourceY, sourceSize.width, sourceSize.height);
     
+    //正文
+    CGFloat contentX = iconX;
+    CGFloat contentY = CGRectGetMaxY(self.iconF) + IWStatusCellBorderW;
+    CGFloat maxWidth = UIScreen.mainScreen.bounds.size.width - 2*IWStatusCellBorderW;
+    CGSize contentSize = [status.text boundingRectWithSize:CGSizeMake(maxWidth, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:13.0f]} context:nil].size;
+    self.contentLabelF = CGRectMake(contentX, contentY, contentSize.width, contentSize.height);
+    
+    //原创微博整体
+    CGFloat originalX = 0;
+    CGFloat originalY = 0;
+    CGFloat originalW = UIScreen.mainScreen.bounds.size.width;
+    CGFloat originalH = CGRectGetMaxY(self.contentLabelF);
+    self.originalViewF = CGRectMake(originalX, originalY, originalW, originalH);
+    
+    self.height = CGRectGetMaxY(self.originalViewF) + IWStatusCellBorderW;
 }
 
 @end
