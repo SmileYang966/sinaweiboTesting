@@ -50,6 +50,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,assign)CGRect retweetContentLabelF;
 @property(nonatomic,assign)CGRect retweetPhotoViewF;
 
+
+/**工具条*/
+@property(nonatomic,assign)CGRect toolBarF;
 @end
 
 NS_ASSUME_NONNULL_END

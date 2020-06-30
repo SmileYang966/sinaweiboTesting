@@ -48,7 +48,9 @@
 /**转发微博配图*/
 @property(nonatomic,strong)UIImageView *retweetPhotoView;
 
-/*评论区整体*/
+
+/*工具条*/
+@property(nonatomic,strong)UIView *toolBarView;
  
 @end
 
@@ -71,6 +73,9 @@
         
         //2.初始化转发微博
         [self setupForwardView];
+        
+        //3.初始化工具条
+        [self setupToolBar];
     }
     return self;
 }
@@ -129,6 +134,13 @@
     [self.retweetView addSubview:self.retweetPhotoView];
 }
 
+//3.初始化工具条
+-(void)setupToolBar{
+    self.toolBarView = [[UIView alloc]init];
+    self.toolBarView.backgroundColor = UIColor.lightGrayColor;
+    [self.contentView addSubview:self.toolBarView];
+}
+
 - (void)setStatusFrame:(SCStatusFrame *)statusFrame{
     _statusFrame = statusFrame;
     
@@ -184,7 +196,6 @@
     
     //转发微博
     if (status.retweeted_status) {
-        
         SCStatus *retweetStatus = status.retweeted_status;
         
         self.retweetView.hidden = NO;
@@ -207,10 +218,13 @@
         }else{
             self.retweetPhotoView.hidden = YES;
         }
-        
     }else{
         self.retweetView.hidden = YES;
     }
+    
+    
+    //工具条
+    self.toolBarView.frame = statusFrame.toolBarF;
 }
 
 @end

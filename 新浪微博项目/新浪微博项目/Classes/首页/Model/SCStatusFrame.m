@@ -116,11 +116,27 @@
     self.retweetViewF = CGRectMake(retweetViewX, retweetViewY, retweetViewW, retweetViewHeight);
     
     
+//    if (status.retweeted_status) {
+//        self.height = CGRectGetMaxY(self.retweetViewF) + IWStatusCellBorderW;
+//    }else{
+//        self.height = CGRectGetMaxY(self.originalViewF) + IWStatusCellBorderW;
+//    }
+    
+    //工具条
+    CGFloat toolbarX = 0;
+    CGFloat toolBarY = 0;
     if (status.retweeted_status) {
-        self.height = CGRectGetMaxY(self.retweetViewF) + IWStatusCellBorderW;
+        toolBarY = CGRectGetMaxY(self.retweetViewF);
     }else{
-        self.height = CGRectGetMaxY(self.originalViewF) + IWStatusCellBorderW;
+        toolBarY = CGRectGetMaxY(self.originalViewF);
     }
+    CGFloat toolBarWidth = UIScreen.mainScreen.bounds.size.width;
+    CGFloat toolBarHeight = 35.0f;
+    
+    self.toolBarF = CGRectMake(toolbarX, toolBarY, toolBarWidth, toolBarHeight);
+    
+    
+    self.height = CGRectGetMaxY(self.toolBarF) + IWStatusCellBorderW;
 }
 
 @end
