@@ -117,9 +117,12 @@
 //2.初始化转发微博
 -(void)setupForwardView{
     self.retweetView = [[UIView alloc]init];
+    self.retweetView.backgroundColor = UIColor.blueColor;
     [self.contentView addSubview:self.retweetView];
     
     self.retweetContentLabel = [[UILabel alloc]init];
+    self.retweetContentLabel.font = [UIFont systemFontOfSize:15.0f];
+    self.retweetContentLabel.numberOfLines = 0;
     [self.retweetView addSubview:self.retweetContentLabel];
     
     self.retweetPhotoView = [[UIImageView alloc]init];
@@ -165,6 +168,7 @@
     
     //content label
     self.contentLabel.frame = statusFrame.contentLabelF;
+    
     self.contentLabel.text = status.text;
     
     //content imageview
@@ -177,7 +181,36 @@
     }else{
         self.contentImageView.hidden = YES;
     }
-
+    
+    //转发微博
+    if (status.retweeted_status) {
+        
+        SCStatus *retweetStatus = status.retweeted_status;
+        
+        self.retweetView.hidden = NO;
+        self.retweetView.frame = statusFrame.retweetViewF;
+        
+        
+        //转发微博内容整体
+        self.retweetContentLabel.frame = statusFrame.retweetContentLabelF;
+        self.retweetContentLabel.text =  [NSString stringWithFormat:@"@%@ : %@",retweetStatus.user.name,retweetStatus.text];
+        
+        
+        
+        //转发微博配图
+        if (retweetStatus.pic_urls.count > 0) {
+            self.retweetPhotoView.frame = statusFrame.retweetPhotoViewF;
+            SCStatusPhoto *photo = retweetStatus.pic_urls.firstObject;
+            [self.retweetPhotoView sd_setImageWithURL:[NSURL URLWithString:photo.thumbnail_pic] placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
+            
+            self.retweetPhotoView.hidden = NO;
+        }else{
+            self.retweetPhotoView.hidden = YES;
+        }
+        
+    }else{
+        self.retweetView.hidden = YES;
+    }
 }
 
 @end

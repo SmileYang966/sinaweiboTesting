@@ -87,12 +87,40 @@
     CGFloat originalW = UIScreen.mainScreen.bounds.size.width;
     self.originalViewF = CGRectMake(originalX, originalY, originalW, originalH);
     
-    self.height = CGRectGetMaxY(self.originalViewF) + IWStatusCellBorderW;
+    
+    //被转发微博正文
+    CGFloat retweetContentViewX = IWStatusCellBorderW;
+    CGFloat retweetContentViewY = IWStatusCellBorderW;
+    SCStatus *retweetStatus = status.retweeted_status;
+    NSString *retweetContentLabelString = [NSString stringWithFormat:@"@%@ : %@",retweetStatus.user.name,retweetStatus.text];
+    
+    CGSize retweetContentSize = [retweetContentLabelString boundingRectWithSize:CGSizeMake(maxWidth, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:15.0f]} context:nil].size;
+    self.retweetContentLabelF = CGRectMake(retweetContentViewX, retweetContentViewY, retweetContentSize.width, retweetContentSize.height);
+    
+    //被转发微博配图
+    CGFloat retweetViewHeight = 0;
+    if (retweetStatus.pic_urls.count>0) {
+        CGFloat retweetViewWH = 100;
+        CGFloat retweetViewPhotoX = IWStatusCellBorderW;
+        CGFloat retweetViewPhotoY = CGRectGetMaxY(self.retweetContentLabelF) + IWStatusCellBorderW;
+        self.retweetPhotoViewF = CGRectMake(retweetViewPhotoX, retweetViewPhotoY, retweetViewWH, retweetViewWH);
+        retweetViewHeight = CGRectGetMaxY(self.retweetPhotoViewF)+IWStatusCellBorderW;
+    }else{
+        retweetViewHeight = CGRectGetMaxY(self.retweetContentLabelF)+IWStatusCellBorderW;
+    }
+    
+    //被转发微博整体
+    CGFloat retweetViewX = 0;
+    CGFloat retweetViewY = CGRectGetMaxY(self.originalViewF);
+    CGFloat retweetViewW = UIScreen.mainScreen.bounds.size.width;
+    self.retweetViewF = CGRectMake(retweetViewX, retweetViewY, retweetViewW, retweetViewHeight);
     
     
-    
-    //转发微博
-    
+    if (status.retweeted_status) {
+        self.height = CGRectGetMaxY(self.retweetViewF) + IWStatusCellBorderW;
+    }else{
+        self.height = CGRectGetMaxY(self.originalViewF) + IWStatusCellBorderW;
+    }
 }
 
 @end
