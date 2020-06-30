@@ -41,10 +41,15 @@
 
 
 /*转载微博整体*/
-
+/**转发微博整体*/
+@property(nonatomic,strong)UIView *retweetView;
+/**转发微博正文+昵称*/
+@property(nonatomic,strong)UILabel *retweetContentLabel;
+/**转发微博配图*/
+@property(nonatomic,strong)UIImageView *retweetPhotoView;
 
 /*评论区整体*/
-
+ 
 @end
 
 @implementation SCHomeTableViewCell
@@ -60,44 +65,65 @@
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
-        //1.原创微博整体
-        self.originalView = [[UIView alloc]init];
-//        self.originalView.backgroundColor = UIColor.redColor;
-        [self addSubview:self.originalView];
         
-        //图标
-        self.icon = [[UIImageView alloc]init];
-        [self.originalView addSubview:self.icon];
+        //1.初始化原创微博
+        [self setupOriginalView];
         
-        self.nameLabel = [[UILabel alloc]init];
-        [self.originalView addSubview:self.nameLabel];
-
-        /**是否是vip，如果是显示vip标示*/
-        self.vipView = [[UIImageView alloc]init];
-        self.vipView.contentMode = UIViewContentModeCenter;
-        [self.originalView addSubview:self.vipView];
-
-        /**微博发送时间label*/
-        self.timeLabel = [[UILabel alloc]init];
-        self.timeLabel.font = [UIFont systemFontOfSize:15.0f];
-        [self.originalView addSubview:self.timeLabel];
-
-        /**微博来源label*/
-        self.sourceLabel = [[UILabel alloc]init];
-        self.sourceLabel.font = [UIFont systemFontOfSize:15.0f];
-        [self.originalView addSubview:self.sourceLabel];
-
-        /**正文*/
-        self.contentLabel = [[UILabel alloc]init];
-        self.contentLabel.font = [UIFont systemFontOfSize:13.0f];
-        self.contentLabel.numberOfLines = 0;
-        [self.originalView addSubview:self.contentLabel];
-
-        /**正文的imageView*/
-        self.contentImageView = [[UIImageView alloc]init];
-        [self.originalView addSubview:self.contentImageView];
+        //2.初始化转发微博
+        [self setupForwardView];
     }
     return self;
+}
+
+ //1.初始化原创微博
+-(void)setupOriginalView{
+    //1.原创微博整体
+    self.originalView = [[UIView alloc]init];
+    [self.contentView addSubview:self.originalView];
+    
+    //图标
+    self.icon = [[UIImageView alloc]init];
+    [self.originalView addSubview:self.icon];
+    
+    self.nameLabel = [[UILabel alloc]init];
+    [self.originalView addSubview:self.nameLabel];
+
+    /**是否是vip，如果是显示vip标示*/
+    self.vipView = [[UIImageView alloc]init];
+    self.vipView.contentMode = UIViewContentModeCenter;
+    [self.originalView addSubview:self.vipView];
+
+    /**微博发送时间label*/
+    self.timeLabel = [[UILabel alloc]init];
+    self.timeLabel.font = [UIFont systemFontOfSize:15.0f];
+    [self.originalView addSubview:self.timeLabel];
+
+    /**微博来源label*/
+    self.sourceLabel = [[UILabel alloc]init];
+    self.sourceLabel.font = [UIFont systemFontOfSize:15.0f];
+    [self.originalView addSubview:self.sourceLabel];
+
+    /**正文*/
+    self.contentLabel = [[UILabel alloc]init];
+    self.contentLabel.font = [UIFont systemFontOfSize:13.0f];
+    self.contentLabel.numberOfLines = 0;
+    [self.originalView addSubview:self.contentLabel];
+
+    /**正文的imageView*/
+    self.contentImageView = [[UIImageView alloc]init];
+    [self.originalView addSubview:self.contentImageView];
+}
+
+//2.初始化转发微博
+-(void)setupForwardView{
+    self.retweetView = [[UIView alloc]init];
+    [self.contentView addSubview:self.retweetView];
+    
+    self.retweetContentLabel = [[UILabel alloc]init];
+    [self.retweetView addSubview:self.retweetContentLabel];
+    
+    self.retweetPhotoView = [[UIImageView alloc]init];
+    [self.retweetView addSubview:self.retweetPhotoView];
 }
 
 - (void)setStatusFrame:(SCStatusFrame *)statusFrame{

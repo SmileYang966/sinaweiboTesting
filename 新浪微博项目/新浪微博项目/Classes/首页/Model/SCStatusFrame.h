@@ -43,6 +43,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic,assign)CGFloat height;
 
+
+
+/**转发微博*/
+@property(nonatomic,assign)CGRect retweetViewF;
+@property(nonatomic,assign)CGRect retweetContentLabelF;
+@property(nonatomic,assign)CGRect retweetPhotoViewF;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -88,6 +88,11 @@
     self.originalViewF = CGRectMake(originalX, originalY, originalW, originalH);
     
     self.height = CGRectGetMaxY(self.originalViewF) + IWStatusCellBorderW;
+    
+    
+    
+    //转发微博
+    
 }
 
 @end

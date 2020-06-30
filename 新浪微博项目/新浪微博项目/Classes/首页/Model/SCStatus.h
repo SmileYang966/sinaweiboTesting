@@ -29,6 +29,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) NSArray *pic_urls;
 
+@property (nonatomic, strong) SCStatus *retweeted_status;
+
 @end
 
 NS_ASSUME_NONNULL_END
