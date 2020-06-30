@@ -66,11 +66,25 @@
     CGSize contentSize = [status.text boundingRectWithSize:CGSizeMake(maxWidth, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:13.0f]} context:nil].size;
     self.contentLabelF = CGRectMake(contentX, contentY, contentSize.width, contentSize.height);
     
+    
+    //配图
+    CGFloat originalH =0;
+    if (status.pic_urls.count > 0) {//有配图
+        CGFloat photoX = contentX;
+        CGFloat photoY = CGRectGetMaxY(self.contentLabelF)+IWStatusCellBorderW;
+        CGFloat photoWidth = 100;
+        CGFloat photoHeight = 100;
+        self.contentImageViewF = CGRectMake(photoX,photoY,photoWidth,photoHeight);
+        
+        originalH = CGRectGetMaxY(self.contentImageViewF) + IWStatusCellBorderW;
+    }else{//无配图
+        originalH = CGRectGetMaxY(self.contentLabelF) + IWStatusCellBorderW;
+    }
+    
     //原创微博整体
     CGFloat originalX = 0;
     CGFloat originalY = 0;
     CGFloat originalW = UIScreen.mainScreen.bounds.size.width;
-    CGFloat originalH = CGRectGetMaxY(self.contentLabelF);
     self.originalViewF = CGRectMake(originalX, originalY, originalW, originalH);
     
     self.height = CGRectGetMaxY(self.originalViewF) + IWStatusCellBorderW;

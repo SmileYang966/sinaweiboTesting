@@ -11,6 +11,7 @@
 #import "SCStatus.h"
 #import "SCUser.h"
 #import "UIImageView+WebCache.h"
+#import "SCStatusPhoto.h"
 
 @interface SCHomeTableViewCell()
 
@@ -141,7 +142,16 @@
     self.contentLabel.text = status.text;
     
     //content imageview
-    self.contentImageView.frame = statusFrame.contentImageViewF;
+    if (status.pic_urls.count > 0) {
+        self.contentImageView.frame = statusFrame.contentImageViewF;
+        SCStatusPhoto *photo = status.pic_urls.firstObject;
+        [self.contentImageView sd_setImageWithURL:[NSURL URLWithString:photo.thumbnail_pic] placeholderImage:[UIImage imageNamed:@"timeline_image_placeholder"]];
+        
+        self.contentImageView.hidden = NO;
+    }else{
+        self.contentImageView.hidden = YES;
+    }
+
 }
 
 @end

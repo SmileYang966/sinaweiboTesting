@@ -9,9 +9,12 @@
 #import "SCStatus.h"
 #import "SCUser.h"
 #import "MJExtension.h"
+#import "SCStatusPhoto.h"
 
 @implementation SCStatus
 
-
+- (NSDictionary *)objectClassInArray{
+    return @{@"pic_urls" : [SCStatusPhoto class]};
+}
 
 @end
