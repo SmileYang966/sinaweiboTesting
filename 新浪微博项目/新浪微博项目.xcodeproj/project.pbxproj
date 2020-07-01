@@ -22,6 +22,7 @@
 		71545A48247DDAF6008B049A /* SCDropdownView.m in Sources */ = {isa = PBXBuildFile; fileRef = 71545A47247DDAF6008B049A /* SCDropdownView.m */; };
 		71545A4C24807511008B049A /* SCTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 71545A4B24807511008B049A /* SCTabBar.m */; };
 		7187571324AAB3F400B9BE01 /* SCStatusPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 7187571224AAB3F400B9BE01 /* SCStatusPhoto.m */; };
+		7187571624ABFC5000B9BE01 /* SCToolBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7187571524ABFC5000B9BE01 /* SCToolBarView.m */; };
 		71993BEB249D875E009CD317 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 71993BB4249D875E009CD317 /* UIScrollView+MJRefresh.m */; };
 		71993BEC249D875E009CD317 /* MJRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 71993BB5249D875E009CD317 /* MJRefreshConst.m */; };
 		71993BED249D875E009CD317 /* MJRefreshConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 71993BB6249D875E009CD317 /* MJRefreshConfig.m */; };
@@ -124,6 +125,8 @@
 		71545A4B24807511008B049A /* SCTabBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCTabBar.m; sourceTree = "<group>"; };
 		7187571124AAB3F400B9BE01 /* SCStatusPhoto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCStatusPhoto.h; sourceTree = "<group>"; };
 		7187571224AAB3F400B9BE01 /* SCStatusPhoto.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCStatusPhoto.m; sourceTree = "<group>"; };
+		7187571424ABFC5000B9BE01 /* SCToolBarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCToolBarView.h; sourceTree = "<group>"; };
+		7187571524ABFC5000B9BE01 /* SCToolBarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCToolBarView.m; sourceTree = "<group>"; };
 		71993BB4249D875E009CD317 /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
 		71993BB5249D875E009CD317 /* MJRefreshConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshConst.m; sourceTree = "<group>"; };
 		71993BB6249D875E009CD317 /* MJRefreshConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshConfig.m; sourceTree = "<group>"; };
@@ -669,6 +672,8 @@
 				71DCB2A924904B5800C2412E /* SCHomeTitleButton.m */,
 				71993C03249ED888009CD317 /* SCHomeTableViewCell.h */,
 				71993C04249ED888009CD317 /* SCHomeTableViewCell.m */,
+				7187571424ABFC5000B9BE01 /* SCToolBarView.h */,
+				7187571524ABFC5000B9BE01 /* SCToolBarView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -827,6 +832,7 @@
 				71993BF1249D875E009CD317 /* UIView+MJExtension.m in Sources */,
 				71993BF5249D875E009CD317 /* MJRefreshAutoStateFooter.m in Sources */,
 				71ACF169248C8D36003BAD6A /* MBProgressHUD.m in Sources */,
+				7187571624ABFC5000B9BE01 /* SCToolBarView.m in Sources */,
 				711BD76A2499820E0073F4EA /* MJIvar.m in Sources */,
 				71993C05249ED888009CD317 /* SCHomeTableViewCell.m in Sources */,
 				71993BF4249D875E009CD317 /* MJRefreshBackNormalFooter.m in Sources */,

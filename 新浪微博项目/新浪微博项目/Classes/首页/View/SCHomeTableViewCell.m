@@ -12,6 +12,7 @@
 #import "SCUser.h"
 #import "UIImageView+WebCache.h"
 #import "SCStatusPhoto.h"
+#import "SCToolBarView.h"
 
 @interface SCHomeTableViewCell()
 
@@ -76,6 +77,9 @@
         
         //3.初始化工具条
         [self setupToolBar];
+        
+        //点击cell不变色
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     return self;
 }
@@ -136,8 +140,7 @@
 
 //3.初始化工具条
 -(void)setupToolBar{
-    self.toolBarView = [[UIView alloc]init];
-    self.toolBarView.backgroundColor = UIColor.lightGrayColor;
+    self.toolBarView = [SCToolBarView toolBar];
     [self.contentView addSubview:self.toolBarView];
 }
 
