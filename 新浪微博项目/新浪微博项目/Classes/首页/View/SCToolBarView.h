@@ -10,9 +10,15 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class SCStatus;
+
 @interface SCToolBarView : UIView
 
 +(instancetype)toolBar;
+
+@property(nonatomic,strong)SCStatus *status;
+
+
 
 @end
 

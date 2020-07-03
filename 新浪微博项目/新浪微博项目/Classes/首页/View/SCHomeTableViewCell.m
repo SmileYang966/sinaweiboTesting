@@ -51,7 +51,7 @@
 
 
 /*工具条*/
-@property(nonatomic,strong)UIView *toolBarView;
+@property(nonatomic,strong)SCToolBarView *toolBarView;
  
 @end
 
@@ -228,6 +228,7 @@
     
     //工具条
     self.toolBarView.frame = statusFrame.toolBarF;
+    self.toolBarView.status = status;
 }
 
 @end

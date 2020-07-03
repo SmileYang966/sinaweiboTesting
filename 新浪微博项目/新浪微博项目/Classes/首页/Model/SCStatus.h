@@ -31,6 +31,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) SCStatus *retweeted_status;
 
+@property (nonatomic, assign) int reposts_count;
+@property (nonatomic, assign) int comments_count;
+@property (nonatomic, assign) int attitudes_count;
+ 
 @end
 
 NS_ASSUME_NONNULL_END
