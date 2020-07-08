@@ -51,7 +51,7 @@
     CGFloat timeX = nameX;
     CGFloat timeY = CGRectGetMaxY(self.nameLabelF) + IWStatusCellBorderW;
     CGSize timeSize = [self sizeWithText:status.created_at font:[UIFont systemFontOfSize:15.0f]];
-    self.timeLabelF = CGRectMake(timeX, timeY, timeSize.width, timeSize.height);
+    self.timeLabelF = CGRectMake(timeX, timeY, timeSize.width*1.5, timeSize.height);
     
     //来源
     CGFloat sourceX = CGRectGetMaxX(self.timeLabelF) + IWStatusCellBorderW;
