@@ -68,6 +68,7 @@
 		71BC6C142478B04F004E1D77 /* UIView+FrameExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 71BC6C132478B04F004E1D77 /* UIView+FrameExtension.m */; };
 		71BC6C172478C88A004E1D77 /* SCNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 71BC6C162478C88A004E1D77 /* SCNavigationController.m */; };
 		71BC6C2024790E8C004E1D77 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 71BC6C1F24790E8C004E1D77 /* UIBarButtonItem+Extension.m */; };
+		71C24F4324BD265800916AD0 /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 71C24F4224BD265800916AD0 /* NSDate+Extension.m */; };
 		71CC88552495ACAE00893E91 /* UIImage+WebP.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CC88342495ACAE00893E91 /* UIImage+WebP.m */; };
 		71CC88562495ACAE00893E91 /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CC88352495ACAE00893E91 /* MKAnnotationView+WebCache.m */; };
 		71CC88572495ACAE00893E91 /* SDWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 71CC88382495ACAE00893E91 /* SDWebImageManager.m */; };
@@ -216,6 +217,8 @@
 		71BC6C1E24790E8C004E1D77 /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
 		71BC6C1F24790E8C004E1D77 /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
 		71BC6C2124791325004E1D77 /* sinaPchFile.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sinaPchFile.pch; sourceTree = "<group>"; };
+		71C24F4124BD265800916AD0 /* NSDate+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extension.h"; sourceTree = "<group>"; };
+		71C24F4224BD265800916AD0 /* NSDate+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extension.m"; sourceTree = "<group>"; };
 		71CC88342495ACAE00893E91 /* UIImage+WebP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WebP.m"; sourceTree = "<group>"; };
 		71CC88352495ACAE00893E91 /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
 		71CC88362495ACAE00893E91 /* UIImageView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WebCache.h"; sourceTree = "<group>"; };
@@ -556,6 +559,8 @@
 				71BC6C1F24790E8C004E1D77 /* UIBarButtonItem+Extension.m */,
 				71D51841247BF23D00DE37CB /* UITextField+SearchBar.h */,
 				71D51842247BF23D00DE37CB /* UITextField+SearchBar.m */,
+				71C24F4124BD265800916AD0 /* NSDate+Extension.h */,
+				71C24F4224BD265800916AD0 /* NSDate+Extension.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -843,6 +848,7 @@
 				711BD76D2499820E0073F4EA /* MJTypeEncoding.m in Sources */,
 				71CC88622495ACAE00893E91 /* UIImageView+WebCache.m in Sources */,
 				71BC6BF824788980004E1D77 /* main.m in Sources */,
+				71C24F4324BD265800916AD0 /* NSDate+Extension.m in Sources */,
 				71545A4C24807511008B049A /* SCTabBar.m in Sources */,
 				71CC88682495D38300893E91 /* SCStatus.m in Sources */,
 				71993C08249EF6E7009CD317 /* SCStatusFrame.m in Sources */,

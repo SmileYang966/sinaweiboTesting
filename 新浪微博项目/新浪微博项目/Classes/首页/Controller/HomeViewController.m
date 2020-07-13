@@ -65,9 +65,6 @@
     //2.设置用户信息相关
     [self setupUserInfo];
     
-    //3.请求最新的数据
-    [self loadData];
-    
     //4.添加下拉刷新控件
     [self addRefreshControl];
     

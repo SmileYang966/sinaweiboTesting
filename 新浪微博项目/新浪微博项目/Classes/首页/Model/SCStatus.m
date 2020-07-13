@@ -51,8 +51,8 @@
     NSDateComponents *comps = [calendar components:(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond) fromDate:createdDate toDate:currentDate options:0];
     NSLog(@"comps = %@",comps);
     
-    if([self isThisYear:createdDate]){
-        if ([self isToday:createdDate]) {
+    if([createdDate isThisYear]){
+        if ([createdDate isToday]) {
             if (comps.hour>=1) {//1小时前
                 return [NSString stringWithFormat:@"%ld小时前",(long)comps.hour];
             }else if(comps.minute>=1)//xx分钟前
@@ -63,7 +63,7 @@
             }
             
             
-        }else if([self isYesterday:createdDate]){
+        }else if([createdDate isYesterday]){
             fmt.dateFormat = @"昨天 HH:mm";
             return [fmt stringFromDate:createdDate];
         }else{//其它
@@ -79,39 +79,6 @@
     
     
     return @"123";
-}
-
-
-//是否为今年
--(BOOL)isThisYear:(NSDate *)date{
-    NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSDateComponents *dateComps = [calendar components:NSCalendarUnitYear fromDate:date];
-    NSDateComponents *nowComps = [calendar components:NSCalendarUnitYear fromDate:[NSDate date]];
-    return dateComps.year == nowComps.year;
-}
-
-//是否为昨天
--(BOOL)isYesterday:(NSDate *)date{
-    NSDateFormatter *fmt = [[NSDateFormatter alloc]init];
-    fmt.dateFormat = @"yyyy-MM-dd";
-    NSString *dateStr =  [fmt stringFromDate:date];
-    NSString *nowDateStr = [fmt stringFromDate:[NSDate date]];
-    
-    NSDate *recordedDate = [fmt dateFromString:dateStr];
-    NSDate *nowDate = [fmt dateFromString:dateStr];
-    
-    NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSDateComponents *comps = [calendar components:NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay fromDate:recordedDate toDate:nowDate options:0];
-    return comps.year==0 && comps.month==0 && comps.day==1;
-}
-
-//是否为今天
--(BOOL)isToday:(NSDate *)date{
-    NSDateFormatter *fmt = [[NSDateFormatter alloc]init];
-    fmt.dateFormat = @"yyyy-MM-dd";
-    NSString *dateStr =  [fmt stringFromDate:date];
-    NSString *nowDateStr = [fmt stringFromDate:[NSDate date]];
-    return [dateStr isEqualToString:nowDateStr];
 }
 
 @end
